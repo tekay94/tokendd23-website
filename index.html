@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#050810">
-<meta name="description" content="DD23 – Ein Mann. Ein Wort. Unabhängige Informationsseite zum DD23-Memecoin auf Base.">
+<meta name="description" content="DD23 – Ein Mann. Ein Wort. Unabhängige Informationen zum DD23-Memecoin auf Base und zur freiwilligen Halteabsicht seines Erstellers.">
 <title>DD23 | Ein Mann. Ein Wort.</title>
 
 <style>
@@ -92,8 +92,9 @@ header{
 }
 nav{
   display:flex;
-  gap:24px;
+  gap:19px;
   align-items:center;
+  flex-wrap:wrap;
 }
 nav a{
   font-size:13px;
@@ -190,6 +191,7 @@ nav a:hover{color:var(--gold)}
   transition:transform .2s,background .2s;
 }
 .btn:hover{transform:translateY(-3px)}
+.btn:disabled{opacity:.55;cursor:wait}
 .primary{
   color:#171108;
   background:linear-gradient(120deg,#ffe7a5,#d9a02e);
@@ -218,14 +220,14 @@ nav a:hover{color:var(--gold)}
   50%{transform:translateY(-12px)}
 }
 
-/* CONTENT */
+/* SECTIONS */
 .section{
   padding:95px 0;
   border-top:1px solid var(--line);
 }
 .section.alt{background:#0a111e}
 .intro{
-  max-width:750px;
+  max-width:800px;
   color:var(--muted);
   font-size:17px;
 }
@@ -246,10 +248,7 @@ nav a:hover{color:var(--gold)}
   margin:0 0 12px;
   font-size:21px;
 }
-.card p{
-  color:var(--muted);
-  margin:0;
-}
+.card p{color:var(--muted);margin:0}
 .card-label{
   color:var(--muted);
   text-transform:uppercase;
@@ -317,6 +316,55 @@ nav a:hover{color:var(--gold)}
   color:var(--muted);
   font-size:13px;
 }
+
+/* PROMISE */
+.promise-panel{
+  position:relative;
+  overflow:hidden;
+  margin-top:35px;
+  padding:38px;
+  border:1px solid #e8b64c66;
+  border-radius:17px;
+  background:
+    radial-gradient(ellipse at 90% 0%,#e8b64c15,transparent 55%),
+    linear-gradient(135deg,#152135,#0a111d);
+}
+.promise-stats{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:25px;
+  margin:28px 0;
+}
+.promise-number{
+  font-size:clamp(37px,5vw,65px);
+  font-weight:900;
+  letter-spacing:-.055em;
+  color:var(--gold2);
+  line-height:1.1;
+}
+.promise-label{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:8px;
+}
+.countdown{
+  font-size:clamp(29px,4.5vw,54px);
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:-.045em;
+  color:var(--gold2);
+  margin:16px 0 10px;
+}
+.promise-dates{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 24px;
+  color:var(--muted);
+  font-size:14px;
+  margin:18px 0;
+}
+
+/* FOOTER */
 .disclaimer{
   max-width:850px;
   color:#c7d0dc;
@@ -348,7 +396,6 @@ footer{
   }
   nav{
     justify-content:center;
-    flex-wrap:wrap;
     gap:13px 20px;
   }
   .hero-grid{
@@ -370,7 +417,8 @@ footer{
   .cards{grid-template-columns:1fr}
   .section{padding:68px 0}
   .buttons .btn{width:100%}
-  .token-box{padding:20px}
+  .token-box,.promise-panel{padding:20px}
+  .promise-stats{grid-template-columns:1fr}
   .earth{bottom:-408px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -390,11 +438,12 @@ footer{
     </a>
 
     <nav aria-label="Hauptnavigation">
-      <a href="#about">Über DD23</a>
+      <a href="#about">Die Idee</a>
+      <a href="#promise">Das Versprechen</a>
       <a href="#token">Token</a>
       <a href="#market">Live-Daten</a>
       <a href="#risk">Risiken</a>
-      <a href="#independent">Unabhängigkeit</a>
+      <a href="#independent">Transparenz</a>
     </nav>
   </div>
 </header>
@@ -402,13 +451,11 @@ footer{
 <main>
 
 <!-- HERO -->
-
 <section class="hero" id="start">
   <div class="stars"></div>
   <div class="earth"></div>
 
   <div class="container hero-grid">
-
     <div>
       <div class="eyebrow">
         DD23 · Memecoin · Base Network
@@ -423,22 +470,23 @@ footer{
 
       <p>
         Ein Memecoin auf der Base-Blockchain.
-        Eine Idee rund um Vertrauen,
-        Gemeinschaft und ein gegebenes Wort.
+        Inspiriert von Vertrauen, Zusammenhalt
+        und der Bedeutung eines gegebenen Wortes.
         Ohne Renditeversprechen.
       </p>
 
       <div class="buttons">
-        <a href="#token" class="btn primary">
-          Token entdecken
+        <a href="#about" class="btn primary">
+          Die Idee entdecken
         </a>
-        <a href="#market" class="btn secondary">
-          Live-Marktdaten
+        <a href="#promise" class="btn secondary">
+          Das Versprechen
         </a>
       </div>
     </div>
 
     <div class="coin-area">
+      <!-- Direkt eingebettete SVG-Nachbildung -->
       <svg class="coin" viewBox="0 0 600 600"
         role="img" aria-label="Goldenes DD23-Münzsymbol"
         xmlns="http://www.w3.org/2000/svg">
@@ -457,7 +505,7 @@ footer{
             <stop offset="100%" stop-color="#030406"/>
           </radialGradient>
 
-          <clipPath id="clip">
+          <clipPath id="coinClip">
             <circle cx="300" cy="300" r="268"/>
           </clipPath>
         </defs>
@@ -473,7 +521,7 @@ footer{
           stroke-width="2"
           opacity=".8"/>
 
-        <g clip-path="url(#clip)">
+        <g clip-path="url(#coinClip)">
 
           <ellipse cx="300" cy="300"
             rx="260" ry="140"
@@ -538,57 +586,141 @@ footer{
             <circle cx="334" cy="504" r="4"/>
             <circle cx="436" cy="521" r="3"/>
           </g>
-
         </g>
       </svg>
     </div>
-
   </div>
 </section>
 
-<!-- ABOUT -->
-
+<!-- DIE IDEE -->
 <section class="section" id="about">
   <div class="container">
-    <div class="eyebrow">Über DD23</div>
-    <h2>Ein Memecoin. Eine Idee.</h2>
+    <div class="eyebrow">Die Idee hinter DD23</div>
+    <h2>Ein Memecoin. Eine Idee. Ein Wort.</h2>
 
     <p class="intro">
-      DD23 ist ein experimenteller ERC-20-Memecoin
-      auf der Base-Blockchain.
-      Der Name steht für eine Projektidee,
-      die sich um Vertrauen, Verlässlichkeit
-      und Gemeinschaft dreht.
+      Hinter DD23 steht die persönliche Idee
+      seines Erstellers: Vertrauen, Zusammenhalt
+      und ein gegebenes Wort sollen auch
+      in der digitalen Welt Bedeutung haben.
     </p>
 
     <p class="intro">
-      DD23 bietet keine garantierten Erträge,
-      keine zugesagten Ausschüttungen
-      und keinen Anspruch auf eine Wertsteigerung.
+      Der Leitsatz lautet:
+      <strong class="gold">„Eine Hand wäscht die andere.“</strong>
+      DD23 soll diese Idee symbolisieren und
+      Menschen ansprechen, die ähnliche Werte teilen.
+    </p>
+
+    <p class="intro">
+      DD23 ist ein experimenteller Memecoin.
+      Aus dieser Projektidee entstehen keine
+      garantierten wirtschaftlichen Vorteile,
+      Mitgliedschaftsrechte oder Ansprüche
+      auf zukünftige Leistungen.
     </p>
 
     <div class="cards">
       <div class="card">
-        <h3>Ein Mann. Ein Wort.</h3>
-        <p>Ein Leitsatz über Verlässlichkeit und Vertrauen.</p>
+        <h3>Vertrauen</h3>
+        <p>Ein gegebenes Wort soll Bedeutung haben.</p>
       </div>
 
       <div class="card">
-        <h3>Base Network</h3>
-        <p>Der DD23-Token verwendet den ERC-20-Standard auf Base.</p>
+        <h3>Zusammenhalt</h3>
+        <p>Eine Hand wäscht die andere.</p>
       </div>
 
       <div class="card">
-        <h3>Memecoin</h3>
-        <p>Ein experimenteller Kryptowert mit erheblichen Risiken.</p>
+        <h3>Eigenverantwortung</h3>
+        <p>Keine Renditegarantien und keine falschen Sicherheiten.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TOKEN -->
+<!-- DAS VERSPRECHEN -->
+<section class="section alt" id="promise">
+  <div class="container">
+    <div class="eyebrow">Das persönliche Versprechen</div>
+    <h2>Ein Mann. Ein Wort.</h2>
 
-<section class="section alt" id="token">
+    <p class="intro">
+      Der Ersteller von DD23 hat die Absicht erklärt,
+      50.000 der insgesamt 100.000 DD23-Token
+      auf einer separaten MetaMask-Wallet
+      freiwillig zu halten.
+    </p>
+
+    <div class="promise-panel">
+      <div class="eyebrow">Freiwillige Halteabsicht</div>
+
+      <div class="promise-stats">
+        <div>
+          <div class="promise-number">50.000</div>
+          <div class="promise-label">
+            DD23-Token · angekündigte Haltemenge
+          </div>
+        </div>
+
+        <div>
+          <div class="promise-number">50 %</div>
+          <div class="promise-label">
+            Der angegebenen Gesamtmenge
+          </div>
+        </div>
+      </div>
+
+      <div class="promise-dates">
+        <span><strong>Beginn:</strong> 18.11.2026</span>
+        <span><strong>Zieltermin:</strong> 18.11.2027</span>
+      </div>
+
+      <div class="eyebrow">Zeit bis zum Zieltermin</div>
+      <div class="countdown" id="countdown"
+           aria-live="off">
+        Wird berechnet …
+      </div>
+
+      <p class="muted">
+        Der Countdown zeigt lediglich die verbleibende
+        Zeit bis zum angekündigten Zieltermin.
+      </p>
+
+      <div class="note">
+        <strong>Keine technische Token-Sperre:</strong>
+        Die 50.000 DD23 sind nicht durch einen
+        Smart Contract gesperrt.
+        Es handelt sich ausschließlich um eine
+        freiwillige Selbstverpflichtung des Erstellers.
+        Die Einhaltung kann auf dieser Website
+        derzeit nicht unabhängig bestätigt werden.
+        Der Countdown ist kein Nachweis
+        für den Token-Bestand.
+      </div>
+    </div>
+
+    <p class="intro" style="margin-top:28px">
+      Nach Ablauf des angekündigten Haltezeitraums
+      möchte der Ersteller Möglichkeiten prüfen,
+      wie die Gemeinschaft in zukünftige
+      Entscheidungen über diese Token
+      einbezogen werden könnte.
+      Verbindliche Regeln oder Mitbestimmungsrechte
+      bestehen bislang nicht.
+    </p>
+
+    <p class="intro">
+      Die Halteabsicht ist keine Zusage
+      über den zukünftigen Preis,
+      die Liquidität oder die Wertentwicklung
+      von DD23.
+    </p>
+  </div>
+</section>
+
+<!-- TOKEN -->
+<section class="section" id="token">
   <div class="container">
     <div class="eyebrow">Token-Informationen</div>
     <h2>DD23 auf Base.</h2>
@@ -614,9 +746,7 @@ footer{
       <div class="eyebrow">Smart Contract</div>
       <h3>Contract-Adresse</h3>
 
-      <code class="contract">
-0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43
-      </code>
+      <code class="contract">0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43</code>
 
       <div class="buttons">
         <button class="btn primary" id="copy" type="button">
@@ -635,8 +765,7 @@ footer{
 </section>
 
 <!-- MARKET -->
-
-<section class="section" id="market">
+<section class="section alt" id="market">
   <div class="container">
     <div class="eyebrow">Marktübersicht</div>
     <h2>DD23 Live-Daten.</h2>
@@ -648,7 +777,6 @@ footer{
     </p>
 
     <div class="token-box">
-
       <div class="status-row">
         <strong>DD23 · Marktstatus</strong>
 
@@ -659,7 +787,6 @@ footer{
       </div>
 
       <div class="cards" style="margin-top:0">
-
         <div class="card">
           <div class="card-label">Preis in USD</div>
           <div class="card-value" id="price">—</div>
@@ -689,17 +816,14 @@ footer{
           <div class="card-label">Market Cap laut Anbieter</div>
           <div class="card-value" id="marketcap">—</div>
         </div>
-
       </div>
 
-      <p class="footnote" id="updated"
-         aria-live="polite">
+      <p class="footnote" id="updated" aria-live="polite">
         Noch keine Daten geladen.
       </p>
 
       <div class="buttons">
-        <button class="btn primary" id="refresh"
-          type="button">
+        <button class="btn primary" id="refresh" type="button">
           Daten aktualisieren
         </button>
 
@@ -710,23 +834,23 @@ footer{
           DEX Screener öffnen
         </a>
       </div>
-
     </div>
 
     <div class="note">
-      <strong>Wichtig:</strong>
+      <strong>Hinweis:</strong>
       Die Umlaufmenge ist derzeit nicht verifiziert.
+      Die freiwillige Halteabsicht über 50.000 DD23
+      bedeutet nicht automatisch, dass diese Menge
+      technisch vom Umlauf ausgeschlossen ist.
       FDV ist nicht dasselbe wie Market Cap.
-      Marktpreise und Liquiditätsangaben
-      garantieren nicht, dass DD23 in größerer
-      Menge zu diesen Preisen verkauft werden kann.
+      Angezeigte Marktpreise sind keine
+      garantierten Verkaufspreise.
     </div>
   </div>
 </section>
 
-<!-- RISK -->
-
-<section class="section alt" id="risk">
+<!-- RISKS -->
+<section class="section" id="risk">
   <div class="container">
     <div class="eyebrow">Risikohinweise</div>
     <h2>Know the risk.</h2>
@@ -771,45 +895,45 @@ footer{
 </section>
 
 <!-- INDEPENDENCE -->
-
-<section class="section" id="independent">
+<section class="section alt" id="independent">
   <div class="container disclaimer">
     <div class="eyebrow">Transparenz</div>
     <h2>Über diese Website.</h2>
 
     <p>
-      Diese Website ist eine unabhängig
-      technisch bereitgestellte Informationsseite
-      über den DD23-Memecoin.
+      Diese Website dient der allgemeinen
+      Information über den DD23-Memecoin
+      und die vom Ersteller kommunizierte Projektidee.
     </p>
 
     <p>
       Der technische Website-Betreiber ist nach
-      eigener Angabe nicht der Ersteller oder
+      eigener Angabe weder Ersteller noch
       Herausgeber des DD23-Tokens und besitzt
       selbst keine DD23-Token.
     </p>
 
     <p>
-      Der Website-Betreiber verwaltet weder
-      den Token-Smart-Contract noch die
-      Token-Reserven und hat nach eigener
-      Angabe keine Verfügungsgewalt darüber.
+      Der Website-Betreiber verwaltet nach
+      eigener Angabe weder den Token-Smart-Contract
+      noch die Token-Reserven und hat
+      keine Verfügungsgewalt darüber.
     </p>
 
     <p>
-      Die technische Bereitstellung der Website
-      ist von der Erstellung, Herausgabe
-      und Verwaltung des Tokens zu unterscheiden.
+      Die Informationen zur freiwilligen
+      Halteabsicht stammen aus Angaben
+      zum Token-Projekt.
+      Die tatsächliche Einhaltung
+      wurde hier nicht unabhängig verifiziert.
     </p>
 
     <div class="note">
       <strong>Keine Verkaufsplattform:</strong>
       Diese Website verkauft keine DD23-Token,
-      bietet keinen Wallet-Connect an und
-      verarbeitet keine Token-Transaktionen.
-      Externe Links führen zu unabhängigen
-      Drittanbietern.
+      bietet keinen Wallet-Connect an
+      und verarbeitet keine Token-Transaktionen.
+      Externe Links führen zu Drittanbietern.
     </div>
   </div>
 </section>
@@ -821,16 +945,17 @@ footer{
     <strong class="gold">DD23 · EIN MANN. EIN WORT.</strong>
 
     <p style="margin-top:12px">
-      Unabhängige Informationsseite zum DD23-Memecoin.
+      Informationsseite zum DD23-Memecoin.
       Kein Renditeversprechen.
     </p>
 
     <div class="footer-links">
-      <a href="#about">Über DD23</a>
+      <a href="#about">Die Idee</a>
+      <a href="#promise">Das Versprechen</a>
       <a href="#token">Token</a>
       <a href="#market">Marktdaten</a>
       <a href="#risk">Risiken</a>
-      <a href="#independent">Unabhängigkeit</a>
+      <a href="#independent">Transparenz</a>
     </div>
 
     <p>© <span id="year"></span> DD23</p>
@@ -923,8 +1048,6 @@ async function updateMarket() {
     if(!Array.isArray(data))
       throw new Error("Ungültige API-Antwort");
 
-    // Nur Paare, in denen DD23 der Base-Token ist.
-    // So beziehen sich Preis und Marktdaten auf DD23.
     const pairs = data.filter(pair =>
       pair &&
       pair.chainId === "base" &&
@@ -934,7 +1057,6 @@ async function updateMarket() {
         CONTRACT.toLowerCase()
     );
 
-    // Größte gemeldete USD-Liquidität zuerst.
     pairs.sort((a,b) =>
       (Number(b.liquidity?.usd)||0) -
       (Number(a.liquidity?.usd)||0)
@@ -947,25 +1069,18 @@ async function updateMarket() {
       el("statusText").textContent =
         "Kein passendes Paar gefunden";
       el("updated").textContent =
-        "Keine verlässlichen DEX-Daten verfügbar.";
+        "Keine auswertbaren DEX-Daten verfügbar.";
       return;
     }
 
-    el("price").textContent =
-      usd(pair.priceUsd);
-
+    el("price").textContent = usd(pair.priceUsd);
     el("change").textContent =
       percentage(pair.priceChange?.h24);
-
     el("liquidity").textContent =
       usd(pair.liquidity?.usd,true);
-
     el("volume").textContent =
       usd(pair.volume?.h24,true);
-
-    el("fdv").textContent =
-      usd(pair.fdv,true);
-
+    el("fdv").textContent = usd(pair.fdv,true);
     el("marketcap").textContent =
       usd(pair.marketCap,true);
 
@@ -1010,7 +1125,31 @@ el("copy").addEventListener("click",async function(){
   },2500);
 });
 
+/* Countdown to 18 November 2027, midnight CET */
+const target = new Date("2027-11-18T00:00:00+01:00");
+
+function updateCountdown() {
+  const diff = target.getTime() - Date.now();
+
+  if(diff <= 0) {
+    el("countdown").textContent = "Zieltermin erreicht";
+    return;
+  }
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+
+  el("countdown").textContent =
+    days + " Tage · " +
+    hours + " Std · " +
+    minutes + " Min";
+}
+
 el("year").textContent = new Date().getFullYear();
+
+updateCountdown();
+setInterval(updateCountdown,60000);
 
 updateMarket();
 setInterval(updateMarket,120000);
