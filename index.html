@@ -1,820 +1,815 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#060912">
-<meta name="description" content="DD23 – Ein Mann. Ein Wort. Informationen zum DD23-Community-Projekt und ERC-20-Token auf Base.">
-<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#050810">
+<meta name="description" content="DD23 – Ein Mann. Ein Wort. Unabhängige Informationsseite zum DD23-Memecoin auf Base.">
 <title>DD23 | Ein Mann. Ein Wort.</title>
+
 <style>
 :root{
-  --bg:#060912;--panel:#0e1521;--panel2:#121d2c;
-  --gold:#e6b448;--pale:#ffe2a0;--white:#f6f5f2;
-  --muted:#aeb8c7;--line:#ffffff18;--max:1180px;
+  --bg:#050810;
+  --bg2:#0b1220;
+  --panel:#101a29;
+  --gold:#e8b64c;
+  --gold2:#ffe6a1;
+  --text:#f8f7f3;
+  --muted:#aab5c5;
+  --line:rgba(255,255,255,.11);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--bg);color:var(--white);
+  margin:0;
   font-family:Inter,Arial,Helvetica,sans-serif;
-  line-height:1.65;overflow-x:hidden
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
-button:focus-visible,a:focus-visible{
-  outline:2px solid var(--gold);outline-offset:4px
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:4px;
 }
-.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+.container{
+  width:min(1180px,calc(100% - 40px));
+  margin:auto;
+}
 .gold{color:var(--gold)}
 .muted{color:var(--muted)}
-.small{font-size:.85rem}
 .eyebrow{
-  color:var(--gold);text-transform:uppercase;
-  letter-spacing:.22em;font-size:.73rem;font-weight:800
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
 }
-h1,h2,h3{line-height:1.16;letter-spacing:-.035em}
-h2{font-size:clamp(2rem,4vw,3.3rem);margin:12px 0 22px}
-h3{font-size:1.25rem}
+h1,h2,h3{
+  line-height:1.12;
+  letter-spacing:-.04em;
+}
+h2{
+  font-size:clamp(34px,4vw,54px);
+  margin:12px 0 20px;
+}
 p{margin:0 0 17px}
-.lead{font-size:1.08rem;color:var(--muted);max-width:760px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:48px;padding:11px 20px;border-radius:7px;
-  border:1px solid var(--gold);font-weight:750;font-size:.88rem;
-  transition:transform .2s,background .2s
-}
-.btn:hover{transform:translateY(-2px)}
-.btn.gold-btn{
-  background:linear-gradient(120deg,#ffe4a0,#d9a02b);
-  color:#161008
-}
-.btn.outline{background:#060912a8;color:var(--pale)}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
 
-/* Navigation */
+/* HEADER */
 header{
-  position:relative;z-index:20;background:#050811ed;
-  border-bottom:1px solid var(--line)
+  position:relative;
+  z-index:10;
+  background:#050810e8;
+  border-bottom:1px solid var(--line);
 }
 .navbar{
-  min-height:77px;display:flex;align-items:center;
-  justify-content:space-between;gap:25px
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
 }
 .brand{
-  display:flex;align-items:center;gap:11px;
-  font-size:1.5rem;font-weight:900;color:var(--gold)
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:25px;
+  font-weight:900;
+  color:var(--gold);
 }
-.brand-mark{
-  display:grid;place-items:center;width:42px;height:42px;
-  border:2px solid var(--gold);border-radius:50%;
-  font-size:13px;letter-spacing:-1px
+.brand-icon{
+  width:42px;
+  height:42px;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  box-shadow:0 0 20px #e8b64c22;
 }
-nav{display:flex;flex-wrap:wrap;gap:17px}
-nav a{font-size:.78rem;color:#d7dce3}
+nav{
+  display:flex;
+  gap:24px;
+  align-items:center;
+}
+nav a{
+  font-size:13px;
+  color:#d4dae4;
+}
 nav a:hover{color:var(--gold)}
 
-/* Space hero */
+/* HERO */
 .hero{
-  position:relative;isolation:isolate;overflow:hidden;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:720px;
+  display:flex;
+  align-items:center;
   background:
-    radial-gradient(ellipse at 58% 25%,#21447c44,transparent 44%),
-    radial-gradient(ellipse at 88% 65%,#112d5844,transparent 50%),
-    linear-gradient(180deg,#030711,#081529 85%,#040810);
+    radial-gradient(ellipse at 72% 38%,#274a8544,transparent 43%),
+    radial-gradient(ellipse at 34% 20%,#152e5a44,transparent 50%),
+    linear-gradient(180deg,#030610,#08152b 76%,#050810);
 }
-.space{
-  position:absolute;inset:0;z-index:-3;pointer-events:none;
+.stars{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
   background-image:
-    radial-gradient(1px 1px at 12% 20%,#fff 98%,transparent),
-    radial-gradient(2px 2px at 31% 51%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 47% 12%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 68% 72%,#fff 98%,transparent),
-    radial-gradient(2px 2px at 83% 29%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 94% 59%,#fff 98%,transparent);
-  background-size:427px 359px;opacity:.55
+    radial-gradient(1px 1px at 11% 22%,white 98%,transparent),
+    radial-gradient(2px 2px at 29% 61%,white 98%,transparent),
+    radial-gradient(1px 1px at 47% 13%,white 98%,transparent),
+    radial-gradient(1px 1px at 66% 76%,white 98%,transparent),
+    radial-gradient(2px 2px at 82% 31%,white 98%,transparent),
+    radial-gradient(1px 1px at 94% 54%,white 98%,transparent);
+  background-size:397px 351px;
+  opacity:.55;
 }
-.planet{
-  position:absolute;z-index:-1;pointer-events:none;
-  width:155%;height:460px;left:-25%;bottom:-392px;
-  border-radius:50%;transform:rotate(-5deg);
+.earth{
+  position:absolute;
+  width:165%;
+  height:470px;
+  left:-32%;
+  bottom:-402px;
+  border-radius:50%;
+  z-index:-1;
+  pointer-events:none;
   background:
-    radial-gradient(ellipse at 50% 0%,#f8b65b99,transparent 14%),
-    linear-gradient(180deg,#a6d9ff,#2b639d 3%,#102b50 14%,#030913 75%);
-  box-shadow:0 -4px 20px #7bbfff99,0 -17px 55px #3265b64d
+    radial-gradient(ellipse at 51% 0%,#ffc57888,transparent 17%),
+    linear-gradient(180deg,#b6e3ff,#3d7ab4 3%,#142e51 16%,#02060c 75%);
+  box-shadow:
+    0 -5px 20px #7cc5ff99,
+    0 -19px 55px #3878c64d;
 }
 .hero-grid{
-  min-height:690px;display:grid;
-  grid-template-columns:1fr 1fr;align-items:center;
-  gap:60px;padding:70px 0 135px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
+  padding:85px 0 155px;
 }
 .hero h1{
-  font-size:clamp(5rem,10vw,9rem);line-height:.95;
-  letter-spacing:-.075em;margin:26px 0 16px;
-  background:linear-gradient(120deg,#fff0b9,#dca52f);
-  background-clip:text;-webkit-background-clip:text;color:transparent
+  font-size:clamp(88px,11vw,150px);
+  letter-spacing:-.09em;
+  margin:23px 0 15px;
+  line-height:.9;
+  background:linear-gradient(125deg,#fff0bc,#d69a2b);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
-.hero h2{font-size:clamp(2.2rem,4.5vw,3.7rem);margin:0 0 23px}
-.hero-copy p{color:#d6dbe3;max-width:540px}
-.coin-wrap{display:grid;place-items:center;min-width:0}
+.hero h2{
+  font-size:clamp(37px,4.5vw,61px);
+  margin:0 0 25px;
+}
+.hero p{
+  max-width:530px;
+  color:#d1d9e4;
+  font-size:17px;
+}
+.buttons{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+.btn{
+  min-height:51px;
+  padding:12px 22px;
+  border-radius:7px;
+  border:1px solid var(--gold);
+  font-size:14px;
+  font-weight:800;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  transition:transform .2s,background .2s;
+}
+.btn:hover{transform:translateY(-3px)}
+.primary{
+  color:#171108;
+  background:linear-gradient(120deg,#ffe7a5,#d9a02e);
+}
+.secondary{
+  color:var(--gold2);
+  background:#05081099;
+}
+
+/* COIN */
+.coin-area{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 .coin{
-  width:min(100%,490px);height:auto;
-  filter:drop-shadow(0 20px 30px #0009);
-  animation:float 7s ease-in-out infinite
+  width:100%;
+  max-width:510px;
+  height:auto;
+  overflow:visible;
+  filter:drop-shadow(0 28px 30px #0009);
+  animation:float 7s ease-in-out infinite;
 }
 @keyframes float{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  50%{transform:translateY(-12px)}
 }
 
-/* Sections */
-section.block{padding:90px 0;border-top:1px solid var(--line)}
-section.block:nth-of-type(odd){background:#0a101b}
+/* CONTENT */
+.section{
+  padding:95px 0;
+  border-top:1px solid var(--line);
+}
+.section.alt{background:#0a111e}
+.intro{
+  max-width:750px;
+  color:var(--muted);
+  font-size:17px;
+}
 .cards{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;margin-top:30px
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:32px;
 }
 .card{
-  background:linear-gradient(145deg,var(--panel2),#0b111b);
-  border:1px solid #e6b44830;border-radius:12px;padding:26px
+  background:linear-gradient(145deg,#121f30,#0b121e);
+  border:1px solid #e8b64c30;
+  border-radius:13px;
+  padding:27px;
 }
-.card h3{color:var(--pale);margin:0 0 12px}
-.card p{color:var(--muted);margin:0}
-.card .value{
-  font-size:clamp(1.2rem,2.4vw,1.9rem);
-  color:var(--white);font-weight:850;overflow-wrap:anywhere
+.card h3{
+  color:var(--gold2);
+  margin:0 0 12px;
+  font-size:21px;
 }
-.card .label{
-  color:var(--muted);font-size:.76rem;
-  text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px
+.card p{
+  color:var(--muted);
+  margin:0;
 }
-.notice{
-  margin-top:25px;padding:20px 23px;
-  border-left:3px solid var(--gold);
-  background:#e6b4480b;color:#cbd3df
+.card-label{
+  color:var(--muted);
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:1.3px;
+  margin-bottom:9px;
 }
-.notice strong{color:var(--pale)}
-.token-panel{
-  margin-top:30px;padding:30px;border-radius:12px;
-  border:1px solid #e6b44833;background:var(--panel)
+.card-value{
+  font-size:clamp(19px,2.4vw,30px);
+  font-weight:900;
+  overflow-wrap:anywhere;
 }
+.token-box{
+  margin-top:30px;
+  padding:30px;
+  background:var(--panel);
+  border:1px solid #e8b64c35;
+  border-radius:14px;
+}
+.status-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:23px;
+}
+.status{
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:6px 12px;
+  font-size:12px;
+  color:var(--muted);
+}
+.status-dot{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#8995a6;
+  margin-right:7px;
+}
+.status-dot.online{background:#5dcea0}
 .contract{
-  display:block;padding:17px;border-radius:7px;
-  background:#050913;border:1px solid var(--line);
-  font:14px/1.7 monospace;overflow-wrap:anywhere;
-  color:var(--pale);margin-top:12px
+  display:block;
+  margin-top:12px;
+  padding:17px;
+  background:#050a13;
+  border:1px solid var(--line);
+  border-radius:7px;
+  color:var(--gold2);
+  font:14px/1.7 monospace;
+  overflow-wrap:anywhere;
 }
-.timeline{display:grid;gap:22px;margin-top:30px}
-.step{border-left:2px solid var(--gold);padding-left:22px}
-.step h3{margin:0 0 7px;color:var(--pale)}
-.step p{color:var(--muted);margin:0}
-.countdown{
-  font-size:clamp(2rem,5vw,4rem);font-weight:900;
-  color:var(--pale);letter-spacing:-.04em;margin:25px 0
+.note{
+  margin-top:24px;
+  padding:21px 24px;
+  background:#e8b64c0b;
+  border-left:3px solid var(--gold);
+  color:#cbd4e0;
 }
-.pill{
-  display:inline-flex;align-items:center;gap:7px;
-  border:1px solid #ffffff25;border-radius:30px;
-  padding:5px 11px;font-size:.75rem;color:var(--muted)
+.note strong{color:var(--gold2)}
+.footnote{
+  margin-top:17px;
+  color:var(--muted);
+  font-size:13px;
 }
-.dot{width:7px;height:7px;background:#8b94a4;border-radius:50%}
-.dot.ok{background:#55c99c}
-.dashboard-top{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:12px;margin-bottom:25px
+.disclaimer{
+  max-width:850px;
+  color:#c7d0dc;
 }
-.dashboard-note{
-  margin-top:20px;color:var(--muted);font-size:.85rem
+.disclaimer h3{
+  color:var(--gold2);
+  margin-top:29px;
 }
-.legal{
-  max-width:900px;color:#c7cfda
-}
-.legal h3{color:var(--pale);margin-top:32px}
-.legal ul{padding-left:21px}
-.legal li{margin-bottom:9px}
-.legal a{text-decoration:underline;text-underline-offset:3px}
 footer{
-  background:#03060b;border-top:1px solid var(--line);
-  padding:45px 0;color:var(--muted);font-size:.84rem
+  padding:44px 0;
+  background:#03060c;
+  border-top:1px solid var(--line);
+  font-size:13px;
+  color:var(--muted);
 }
-.footer-links{display:flex;gap:20px;flex-wrap:wrap;margin:15px 0}
-.footer-links a{color:var(--pale)}
-/* Responsive */
-@media(max-width:960px){
-  .navbar{flex-direction:column;padding:16px 0}
-  nav{justify-content:center}
-  .hero-grid{
-    grid-template-columns:1fr;text-align:center;
-    gap:28px;padding:65px 0 150px
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  margin:18px 0;
+}
+.footer-links a{color:var(--gold2)}
+
+/* MOBILE */
+@media(max-width:920px){
+  .navbar{
+    flex-direction:column;
+    padding:17px 0;
   }
-  .hero-copy p{margin-left:auto;margin-right:auto}
-  .actions{justify-content:center}
-  .coin{max-width:380px}
-  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  nav{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:13px 20px;
+  }
+  .hero-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:65px 0 145px;
+    gap:35px;
+  }
+  .hero p{margin-left:auto;margin-right:auto}
+  .buttons{justify-content:center}
+  .coin{max-width:390px}
 }
 @media(max-width:620px){
-  .wrap{width:calc(100% - 30px)}
-  .hero h1{font-size:5.3rem}
-  .hero h2{font-size:2.2rem}
-  .hero-grid{padding-top:48px}
-  .coin{max-width:300px}
+  .container{width:calc(100% - 30px)}
+  .hero h1{font-size:88px}
+  .hero h2{font-size:36px}
+  .hero p{font-size:15px}
+  .coin{max-width:305px}
   .cards{grid-template-columns:1fr}
-  .actions .btn{width:100%}
-  section.block{padding:65px 0}
-  .token-panel{padding:20px}
-  nav{gap:10px 14px}
-  .planet{bottom:-400px}
+  .section{padding:68px 0}
+  .buttons .btn{width:100%}
+  .token-box{padding:20px}
+  .earth{bottom:-408px}
 }
 @media(prefers-reduced-motion:reduce){
-  .coin{animation:none}
   html{scroll-behavior:auto}
+  .coin{animation:none}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="wrap navbar">
+  <div class="container navbar">
     <a href="#start" class="brand">
-      <span class="brand-mark">DD23</span>
+      <span class="brand-icon">DD23</span>
       <span>DD23</span>
     </a>
+
     <nav aria-label="Hauptnavigation">
-      <a href="#geschichte">Geschichte</a>
-      <a href="#werte">Werte</a>
-      <a href="#versprechen">Versprechen</a>
-      <a href="#gemeinschaft">Gemeinschaft</a>
+      <a href="#about">Über DD23</a>
       <a href="#token">Token</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#transparenz">Transparenz</a>
-      <a href="#whitepaper">Whitepaper</a>
-      <a href="#rechtliches">Rechtliches</a>
+      <a href="#market">Live-Daten</a>
+      <a href="#risk">Risiken</a>
+      <a href="#independent">Unabhängigkeit</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="hero" id="start">
-  <div class="space"></div>
-  <div class="planet"></div>
+<!-- HERO -->
 
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow">DD23 · Base Network · ERC-20</div>
+<section class="hero" id="start">
+  <div class="stars"></div>
+  <div class="earth"></div>
+
+  <div class="container hero-grid">
+
+    <div>
+      <div class="eyebrow">
+        DD23 · Memecoin · Base Network
+      </div>
+
       <h1>DD23</h1>
-      <h2>EIN MANN.<br><span class="gold">EIN WORT.</span></h2>
+
+      <h2>
+        EIN MANN.<br>
+        <span class="gold">EIN WORT.</span>
+      </h2>
+
       <p>
-        Ein Handschlag ist ein Versprechen.
-        Eine Hand wäscht die andere.
-        DD23 verbindet traditionelle Werte mit der Idee
-        einer digitalen Gemeinschaft – ohne Renditeversprechen.
+        Ein Memecoin auf der Base-Blockchain.
+        Eine Idee rund um Vertrauen,
+        Gemeinschaft und ein gegebenes Wort.
+        Ohne Renditeversprechen.
       </p>
-      <div class="actions">
-        <a href="#geschichte" class="btn gold-btn">Projekt entdecken</a>
-        <a href="#token" class="btn outline">Token-Dashboard</a>
+
+      <div class="buttons">
+        <a href="#token" class="btn primary">
+          Token entdecken
+        </a>
+        <a href="#market" class="btn secondary">
+          Live-Marktdaten
+        </a>
       </div>
     </div>
 
-    <div class="coin-wrap">
-      <!-- Vereinfachtes, direkt eingebettetes DD23-Vektorlogo -->
+    <div class="coin-area">
       <svg class="coin" viewBox="0 0 600 600"
-           role="img" aria-label="Goldenes DD23-Symbol"
-           xmlns="http://www.w3.org/2000/svg">
+        role="img" aria-label="Goldenes DD23-Münzsymbol"
+        xmlns="http://www.w3.org/2000/svg">
+
         <defs>
           <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#8b4a12"/>
-            <stop offset=".18" stop-color="#fff0b1"/>
-            <stop offset=".4" stop-color="#d48b22"/>
-            <stop offset=".65" stop-color="#ffdf82"/>
-            <stop offset="1" stop-color="#a85f18"/>
+            <stop offset="0%" stop-color="#87460e"/>
+            <stop offset="18%" stop-color="#fff0af"/>
+            <stop offset="38%" stop-color="#d48c23"/>
+            <stop offset="63%" stop-color="#ffe29a"/>
+            <stop offset="100%" stop-color="#a65c12"/>
           </linearGradient>
+
           <radialGradient id="face">
-            <stop offset="0" stop-color="#17202a"/>
-            <stop offset="1" stop-color="#050609"/>
+            <stop offset="0%" stop-color="#18222d"/>
+            <stop offset="100%" stop-color="#030406"/>
           </radialGradient>
-          <clipPath id="inside">
-            <circle cx="300" cy="300" r="270"/>
+
+          <clipPath id="clip">
+            <circle cx="300" cy="300" r="268"/>
           </clipPath>
         </defs>
 
-        <circle cx="300" cy="300" r="280"
-          fill="url(#face)" stroke="url(#metal)"
+        <circle cx="300" cy="300" r="281"
+          fill="url(#face)"
+          stroke="url(#metal)"
           stroke-width="15"/>
-        <circle cx="300" cy="300" r="266"
-          fill="none" stroke="#f0bf5e"
-          stroke-width="2" opacity=".6"/>
 
-        <g clip-path="url(#inside)">
-          <ellipse cx="300" cy="298" rx="259" ry="130"
-            transform="rotate(-27 300 298)"
-            fill="none" stroke="url(#metal)"
+        <circle cx="300" cy="300" r="267"
+          fill="none"
+          stroke="#e3b151"
+          stroke-width="2"
+          opacity=".8"/>
+
+        <g clip-path="url(#clip)">
+
+          <ellipse cx="300" cy="300"
+            rx="260" ry="140"
+            transform="rotate(-27 300 300)"
+            fill="none"
+            stroke="url(#metal)"
             stroke-width="8"/>
 
-          <g fill="#080b10" stroke="url(#metal)"
-             stroke-width="9" stroke-linejoin="round">
-            <path d="M120 174 H203 C270 174 290 218 290 284
-                     C290 349 267 381 202 381 H120 Z"/>
-            <path d="M310 174 H393 C462 174 482 218 482 284
-                     C482 349 457 381 392 381 H310 Z"/>
+          <g fill="#080b10"
+             stroke="url(#metal)"
+             stroke-width="9"
+             stroke-linejoin="round">
+            <path d="M121 179 H205
+              C273 179 292 221 292 287
+              C292 352 267 382 204 382
+              H121 Z"/>
+
+            <path d="M311 179 H395
+              C463 179 484 221 484 287
+              C484 352 458 382 394 382
+              H311 Z"/>
           </g>
 
-          <g stroke="url(#metal)" stroke-width="13"
+          <g stroke="url(#metal)"
+             stroke-width="13"
              stroke-linecap="round">
-            <path d="M157 314 L178 241 M180 314 L201 241
-                     M203 314 L224 241 M226 314 L250 215"/>
-            <path d="M347 314 L368 241 M370 314 L391 241
-                     M393 314 L414 241 M416 314 L440 215"/>
+            <path d="M158 316 L178 240
+                     M181 316 L201 240
+                     M204 316 L224 240
+                     M227 316 L249 216"/>
+
+            <path d="M348 316 L368 240
+                     M371 316 L391 240
+                     M394 316 L414 240
+                     M417 316 L439 216"/>
           </g>
 
-          <text x="297" y="473" text-anchor="middle"
-            font-family="Arial,sans-serif" font-size="137"
-            font-weight="900" font-style="italic"
-            letter-spacing="-12" fill="url(#metal)">23</text>
+          <text x="297" y="472"
+            text-anchor="middle"
+            font-family="Arial,sans-serif"
+            font-size="137"
+            font-style="italic"
+            font-weight="900"
+            letter-spacing="-12"
+            fill="url(#metal)">23</text>
 
-          <g fill="none" stroke="#d4a04c" opacity=".65">
-            <ellipse cx="300" cy="546" rx="210" ry="62"
-              stroke-width="3"/>
-            <ellipse cx="300" cy="546" rx="130" ry="62"/>
-            <ellipse cx="300" cy="546" rx="65" ry="62"/>
-            <path d="M95 546 H505 M130 517 H470 M130 575 H470"/>
+          <g transform="translate(300 548)"
+             fill="none"
+             stroke="#c28a35"
+             opacity=".75">
+            <ellipse rx="208" ry="62" stroke-width="3"/>
+            <ellipse rx="138" ry="62"/>
+            <ellipse rx="68" ry="62"/>
+            <path d="M-200 0H200
+                     M-170 -30H170
+                     M-170 30H170"/>
           </g>
-          <g fill="#ffe0a0">
-            <circle cx="170" cy="518" r="3"/>
-            <circle cx="260" cy="503" r="3"/>
-            <circle cx="370" cy="512" r="3"/>
-            <circle cx="449" cy="534" r="3"/>
+
+          <g fill="#ffdf92">
+            <circle cx="166" cy="519" r="4"/>
+            <circle cx="247" cy="493" r="3"/>
+            <circle cx="334" cy="504" r="4"/>
+            <circle cx="436" cy="521" r="3"/>
           </g>
+
         </g>
       </svg>
     </div>
+
   </div>
 </section>
 
-<section class="block" id="geschichte">
-  <div class="wrap">
-    <div class="eyebrow">01 · Geschichte</div>
-    <h2>Eine Idee. Ein Wort. Eine Gemeinschaft.</h2>
-    <p class="lead">
-      DD23 ist ein persönliches Community-Projekt.
-      Es verbindet Verlässlichkeit, gegenseitige Unterstützung
-      und traditionelle Werte mit digitaler Technologie.
-    </p>
-    <p class="lead">
-      Der DD23-Token ist Bestandteil dieser Projektidee.
-      Eine wirtschaftliche Wertentwicklung wird weder
-      versprochen noch garantiert.
-    </p>
-  </div>
-</section>
+<!-- ABOUT -->
 
-<section class="block" id="werte">
-  <div class="wrap">
-    <div class="eyebrow">02 · Werte</div>
-    <h2>Wofür DD23 stehen soll.</h2>
+<section class="section" id="about">
+  <div class="container">
+    <div class="eyebrow">Über DD23</div>
+    <h2>Ein Memecoin. Eine Idee.</h2>
+
+    <p class="intro">
+      DD23 ist ein experimenteller ERC-20-Memecoin
+      auf der Base-Blockchain.
+      Der Name steht für eine Projektidee,
+      die sich um Vertrauen, Verlässlichkeit
+      und Gemeinschaft dreht.
+    </p>
+
+    <p class="intro">
+      DD23 bietet keine garantierten Erträge,
+      keine zugesagten Ausschüttungen
+      und keinen Anspruch auf eine Wertsteigerung.
+    </p>
+
     <div class="cards">
-      <article class="card">
-        <h3>Ehrlichkeit</h3>
-        <p>Fakten, Absichten und offene Fragen klar voneinander trennen.</p>
-      </article>
-      <article class="card">
-        <h3>Vertrauen</h3>
-        <p>Verlässlichkeit durch nachvollziehbares Handeln fördern.</p>
-      </article>
-      <article class="card">
-        <h3>Gemeinschaft</h3>
-        <p>Austausch und gegenseitige Unterstützung ermöglichen.</p>
-      </article>
+      <div class="card">
+        <h3>Ein Mann. Ein Wort.</h3>
+        <p>Ein Leitsatz über Verlässlichkeit und Vertrauen.</p>
+      </div>
+
+      <div class="card">
+        <h3>Base Network</h3>
+        <p>Der DD23-Token verwendet den ERC-20-Standard auf Base.</p>
+      </div>
+
+      <div class="card">
+        <h3>Memecoin</h3>
+        <p>Ein experimenteller Kryptowert mit erheblichen Risiken.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="block" id="versprechen">
-  <div class="wrap">
-    <div class="eyebrow">03 · Das Versprechen</div>
-    <h2>Ein Mann. Ein Wort.</h2>
-    <p class="lead">
-      Der Initiator beabsichtigt, 50.000 DD23
-      vom 18. November 2026 bis zum 18. November 2027
-      auf einer separaten MetaMask-Wallet freiwillig zu halten.
-    </p>
-    <div class="notice">
-      <strong>Keine technische Sperre:</strong>
-      Die Reserve ist nicht durch einen Smart Contract gesperrt.
-      Es handelt sich um eine freiwillige Selbstverpflichtung.
-      Der Countdown beweist weder den Wallet-Bestand
-      noch die Einhaltung des Versprechens.
-    </div>
-    <div class="countdown" id="countdown">Wird berechnet …</div>
-    <p class="muted">Zieltermin: 18. November 2027, 00:00 Uhr MEZ.</p>
-  </div>
-</section>
+<!-- TOKEN -->
 
-<section class="block" id="gemeinschaft">
-  <div class="wrap">
-    <div class="eyebrow">04 · Gemeinschaft</div>
-    <h2>Eine Hand wäscht die andere.</h2>
-    <p class="lead">
-      DD23 soll Raum für Austausch, gemeinsame Ideen
-      und gegenseitige Unterstützung schaffen.
-      Offizielle Community-Kanäle werden erst bekannt gegeben,
-      wenn sie eingerichtet und bestätigt sind.
-    </p>
-  </div>
-</section>
-
-<section class="block" id="token">
-  <div class="wrap">
-    <div class="eyebrow">05 · Token-Dashboard</div>
+<section class="section alt" id="token">
+  <div class="container">
+    <div class="eyebrow">Token-Informationen</div>
     <h2>DD23 auf Base.</h2>
-    <p class="lead">
-      Öffentliche Token-Informationen und automatisch
-      abgerufene DEX-Marktdaten.
-      Die Daten können verzögert oder unvollständig sein.
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Token</div>
+        <div class="card-value">DD23</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Gesamtmenge laut Projekt</div>
+        <div class="card-value">100.000 DD23</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Netzwerk</div>
+        <div class="card-value">Base</div>
+      </div>
+    </div>
+
+    <div class="token-box">
+      <div class="eyebrow">Smart Contract</div>
+      <h3>Contract-Adresse</h3>
+
+      <code class="contract">
+0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43
+      </code>
+
+      <div class="buttons">
+        <button class="btn primary" id="copy" type="button">
+          Adresse kopieren
+        </button>
+
+        <a class="btn secondary"
+           href="https://basescan.org/token/0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43"
+           target="_blank"
+           rel="noopener noreferrer">
+          Auf BaseScan prüfen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+
+<section class="section" id="market">
+  <div class="container">
+    <div class="eyebrow">Marktübersicht</div>
+    <h2>DD23 Live-Daten.</h2>
+
+    <p class="intro">
+      Automatisch abgerufene Informationen
+      von DEX Screener. Daten können verzögert,
+      unvollständig oder zeitweise nicht verfügbar sein.
     </p>
 
-    <div class="token-panel">
-      <div class="dashboard-top">
-        <strong>DD23 · Marktübersicht</strong>
-        <span class="pill">
-          <span class="dot" id="liveDot"></span>
-          <span id="liveStatus">Daten werden geladen</span>
+    <div class="token-box">
+
+      <div class="status-row">
+        <strong>DD23 · Marktstatus</strong>
+
+        <span class="status">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Wird geladen …</span>
         </span>
       </div>
 
       <div class="cards" style="margin-top:0">
+
         <div class="card">
-          <div class="label">Preis (USD)</div>
-          <div class="value" id="price">—</div>
+          <div class="card-label">Preis in USD</div>
+          <div class="card-value" id="price">—</div>
         </div>
+
         <div class="card">
-          <div class="label">Änderung 24 Stunden</div>
-          <div class="value" id="change">—</div>
+          <div class="card-label">24h Veränderung</div>
+          <div class="card-value" id="change">—</div>
         </div>
+
         <div class="card">
-          <div class="label">Liquidität (USD)</div>
-          <div class="value" id="liquidity">—</div>
+          <div class="card-label">Liquidität</div>
+          <div class="card-value" id="liquidity">—</div>
         </div>
+
         <div class="card">
-          <div class="label">Handelsvolumen 24h</div>
-          <div class="value" id="volume">—</div>
+          <div class="card-label">24h Handelsvolumen</div>
+          <div class="card-value" id="volume">—</div>
         </div>
+
         <div class="card">
-          <div class="label">Voll verwässerte Bewertung (FDV)</div>
-          <div class="value" id="fdv">—</div>
+          <div class="card-label">FDV</div>
+          <div class="card-value" id="fdv">—</div>
         </div>
+
         <div class="card">
-          <div class="label">Market Cap</div>
-          <div class="value" id="marketcap">—</div>
+          <div class="card-label">Market Cap laut Anbieter</div>
+          <div class="card-value" id="marketcap">—</div>
         </div>
+
       </div>
 
-      <p class="dashboard-note">
-        Datenquelle: DEX Screener.
-        Die angezeigten Werte beziehen sich auf ein erfasstes
-        Handelspaar und sind keine garantierten Ausführungspreise.
-        FDV und Market Cap sind unterschiedliche Kennzahlen.
+      <p class="footnote" id="updated"
+         aria-live="polite">
+        Noch keine Daten geladen.
       </p>
 
-      <p class="small muted" id="lastUpdated"
-         aria-live="polite">Noch keine Aktualisierung.</p>
+      <div class="buttons">
+        <button class="btn primary" id="refresh"
+          type="button">
+          Daten aktualisieren
+        </button>
 
-      <div class="actions">
-        <button class="btn outline" id="refresh"
-          type="button">Marktdaten aktualisieren</button>
-        <a class="btn outline"
-          href="https://dexscreener.com/base/0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43"
-          target="_blank" rel="noopener noreferrer">
+        <a class="btn secondary"
+           href="https://dexscreener.com/base/0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43"
+           target="_blank"
+           rel="noopener noreferrer">
           DEX Screener öffnen
         </a>
       </div>
+
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <div class="label">Gesamtmenge laut Projekt</div>
-        <div class="value">100.000 DD23</div>
-      </div>
-      <div class="card">
-        <div class="label">Umlaufmenge</div>
-        <div class="value">Nicht verifiziert</div>
-      </div>
-      <div class="card">
-        <div class="label">Reserve-Zusage</div>
-        <div class="value">50.000 DD23</div>
-        <p style="margin-top:10px">Freiwillig, nicht technisch gesperrt.</p>
-      </div>
-    </div>
-
-    <div class="token-panel">
-      <div class="eyebrow">ERC-20 · Base</div>
-      <h3>Offizielle Contract-Adresse</h3>
-      <code class="contract" id="contract">
-0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43
-      </code>
-      <div class="actions">
-        <button class="btn gold-btn" id="copy"
-          type="button">Adresse kopieren</button>
-        <a class="btn outline"
-          href="https://basescan.org/token/0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43"
-          target="_blank" rel="noopener noreferrer">
-          Token auf BaseScan
-        </a>
-      </div>
+    <div class="note">
+      <strong>Wichtig:</strong>
+      Die Umlaufmenge ist derzeit nicht verifiziert.
+      FDV ist nicht dasselbe wie Market Cap.
+      Marktpreise und Liquiditätsangaben
+      garantieren nicht, dass DD23 in größerer
+      Menge zu diesen Preisen verkauft werden kann.
     </div>
   </div>
 </section>
 
-<section class="block" id="roadmap">
-  <div class="wrap">
-    <div class="eyebrow">06 · Roadmap</div>
-    <h2>Schritt für Schritt.</h2>
-    <p class="lead">
-      Die folgenden Punkte sind Entwicklungsziele,
-      keine verbindlichen Erfolgszusagen.
-    </p>
-    <div class="timeline">
-      <div class="step">
-        <h3>01 · Fundament</h3>
-        <p>Projektidee und Token-Informationen dokumentieren.</p>
-      </div>
-      <div class="step">
-        <h3>02 · Community</h3>
-        <p>Austausch und langfristigen Zusammenhalt fördern.</p>
-      </div>
-      <div class="step">
-        <h3>03 · Unterstützung</h3>
-        <p>Mögliche gemeinschaftliche Hilfsaktionen prüfen.</p>
-      </div>
-      <div class="step">
-        <h3>04 · Reserve und Beteiligung</h3>
+<!-- RISK -->
+
+<section class="section alt" id="risk">
+  <div class="container">
+    <div class="eyebrow">Risikohinweise</div>
+    <h2>Know the risk.</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Hohe Volatilität</h3>
         <p>
-          Nach dem freiwilligen Haltezeitraum Möglichkeiten
-          für die Einbeziehung der Community entwickeln.
-          Ein verbindliches Abstimmungssystem existiert noch nicht.
+          Memecoins können innerhalb kurzer Zeit
+          stark an Wert gewinnen oder verlieren.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Liquiditätsrisiko</h3>
+        <p>
+          Es kann schwierig oder unmöglich sein,
+          Token zu einem gewünschten Preis zu verkaufen.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Technische Risiken</h3>
+        <p>
+          Smart Contracts, Wallets, Netzwerke
+          und Handelsplattformen können ausfallen
+          oder Sicherheitsprobleme aufweisen.
         </p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="block" id="transparenz">
-  <div class="wrap">
-    <div class="eyebrow">07 · Transparenz</div>
-    <h2>Nachvollziehbar statt übertrieben.</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Keine Renditegarantie</h3>
-        <p>Keine zugesagten Gewinne, Zinsen oder Ausschüttungen.</p>
-      </div>
-      <div class="card">
-        <h3>Keine technische Sperre</h3>
-        <p>Die freiwillige Reserve ist nicht per Smart Contract gelockt.</p>
-      </div>
-      <div class="card">
-        <h3>Keine fertige Governance</h3>
-        <p>Community-Abstimmungsregeln sind noch nicht festgelegt.</p>
-      </div>
-    </div>
-
-    <div class="notice">
-      <strong>Risiken:</strong>
-      DD23 kann teilweise oder vollständig an Wert verlieren.
-      Es kann an Liquidität fehlen. Token können unter Umständen
-      nicht oder nur zu ungünstigen Bedingungen verkauft werden.
-      Smart Contracts, Wallets und Handelsplattformen bergen
-      technische und sicherheitsbezogene Risiken.
-      Eine Einlagensicherung oder Anlegerentschädigung
-      besteht für den Token nicht.
+    <div class="note">
+      <strong>Risikohinweis:</strong>
+      DD23 ist ein spekulativer Kryptowert.
+      Ein vollständiger Wertverlust ist möglich.
+      Es bestehen keine garantierten Gewinne,
+      keine zugesagten Zinsen und keine
+      garantierte Rückzahlung.
+      Diese Website enthält keine individuelle Anlageberatung.
     </div>
   </div>
 </section>
 
-<section class="block" id="whitepaper">
-  <div class="wrap legal">
-    <div class="eyebrow">08 · Projektdokumentation</div>
-    <h2>DD23 – Whitepaper-Entwurf</h2>
+<!-- INDEPENDENCE -->
 
-    <div class="notice">
-      <strong>Rechtlicher Status:</strong>
-      Dieser Text ist ein vorläufiges Projektdokument.
-      Er ist kein fertiggestelltes oder eingereichtes
-      MiCA-Krypto-Whitepaper. Er wurde nicht von einer
-      zuständigen Behörde genehmigt.
-      Die erforderlichen Angaben und die rechtliche
-      Einordnung müssen vor einer entsprechenden
-      Verwendung geprüft werden.
-    </div>
+<section class="section" id="independent">
+  <div class="container disclaimer">
+    <div class="eyebrow">Transparenz</div>
+    <h2>Über diese Website.</h2>
 
-    <h3>1. Projektübersicht</h3>
     <p>
-      DD23 ist ein experimentelles Community-Projekt
-      unter dem Leitsatz „Ein Mann. Ein Wort.“
-      Im Mittelpunkt stehen Vertrauen, Verlässlichkeit
-      und gegenseitige Unterstützung.
+      Diese Website ist eine unabhängig
+      technisch bereitgestellte Informationsseite
+      über den DD23-Memecoin.
     </p>
 
-    <h3>2. Token und Technologie</h3>
     <p>
-      Der DD23-Token wird als ERC-20-Token auf Base geführt.
-      Die vom Projekt angegebene Gesamtmenge beträgt
-      100.000 DD23.
-      Die Contract-Adresse lautet:
-    </p>
-    <p><code>
-      0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43
-    </code></p>
-
-    <h3>3. Projektzweck</h3>
-    <p>
-      Der Token soll ein Bestandteil der digitalen
-      DD23-Projektidentität sein.
-      Konkrete, rechtlich verbindliche Nutzungs-,
-      Mitgliedschafts- oder Stimmrechte werden
-      hiermit nicht zugesagt.
+      Der technische Website-Betreiber ist nach
+      eigener Angabe nicht der Ersteller oder
+      Herausgeber des DD23-Tokens und besitzt
+      selbst keine DD23-Token.
     </p>
 
-    <h3>4. Reserve</h3>
     <p>
-      Der Initiator beabsichtigt, 50.000 DD23
-      zwischen dem 18. November 2026 und dem
-      18. November 2027 freiwillig zu halten.
-      Die Token sind nicht technisch gesperrt.
-      Eine Reserve-Wallet-Adresse ist bislang
-      nicht öffentlich bestätigt.
+      Der Website-Betreiber verwaltet weder
+      den Token-Smart-Contract noch die
+      Token-Reserven und hat nach eigener
+      Angabe keine Verfügungsgewalt darüber.
     </p>
 
-    <h3>5. Community und Entwicklung</h3>
     <p>
-      Der Aufbau einer Community, die Prüfung
-      gemeinschaftlicher Unterstützungsaktionen
-      und die Entwicklung möglicher
-      Beteiligungsformen sind Projektziele.
-      Es besteht derzeit kein verbindliches
-      Governance-Verfahren.
+      Die technische Bereitstellung der Website
+      ist von der Erstellung, Herausgabe
+      und Verwaltung des Tokens zu unterscheiden.
     </p>
 
-    <h3>6. Wirtschaftliche Risiken</h3>
-    <p>
-      Ein Erwerb oder Halten von DD23 kann
-      zum vollständigen Verlust des eingesetzten
-      Vermögens führen. Preise können stark schwanken.
-      Eine ausreichende Marktliquidität ist nicht garantiert.
-      Historische Kurse und öffentlich angezeigte
-      Marktwerte lassen keine zuverlässigen Rückschlüsse
-      auf zukünftige Entwicklungen zu.
-    </p>
-
-    <h3>7. Technische Risiken</h3>
-    <p>
-      Smart-Contract-Fehler, Netzwerkausfälle,
-      kompromittierte Wallets, verlorene private Schlüssel,
-      Handelsplattform-Risiken und fehlerhafte
-      Drittanbieter-Daten können Schäden verursachen.
-    </p>
-
-    <h3>8. Rechtlicher Status</h3>
-    <p>
-      Die rechtliche Einordnung von DD23 sowie mögliche
-      Anforderungen an öffentliche Angebote,
-      Handelszulassung, Werbung und Whitepaper
-      sind noch nicht abschließend geprüft.
-    </p>
-
-    <h3>9. Noch erforderliche Angaben</h3>
-    <p>
-      Für ein gegebenenfalls erforderliches
-      MiCA-konformes Krypto-Whitepaper müssen unter anderem
-      die verantwortlichen Rechtspersonen,
-      die konkrete Angebots- und Handelssituation,
-      Token-Rechte, technische Einzelheiten,
-      relevante Umweltangaben und weitere
-      vorgeschriebene Erklärungen geprüft und
-      vollständig dokumentiert werden.
-    </p>
-
-    <h3>10. Stand</h3>
-    <p>Vorläufige Projektdokumentation vom 18. November 2026.</p>
-  </div>
-</section>
-
-<section class="block" id="rechtliches">
-  <div class="wrap legal">
-    <div class="eyebrow">09 · Rechtliches</div>
-    <h2>Impressum und Datenschutz</h2>
-
-    <h3 id="impressum">Impressum</h3>
-    <div class="notice">
-      <strong>Veröffentlichung noch nicht freigegeben:</strong>
-      Die Identität und die erforderlichen Kontaktangaben
-      des tatsächlichen Website-Anbieters sind noch
-      nicht vollständig dokumentiert.
-      Ohne diese Angaben kann kein vollständiges
-      Impressum erstellt werden.
-    </div>
-    <p>
-      Der DD23-Initiator ist nach den bisher bekannten
-      Projektangaben für das Token-Projekt verantwortlich.
-      Die technische Website-Umsetzung erfolgt getrennt
-      davon. Welche Person rechtlich als Anbieter der
-      Website auftritt, muss verbindlich geklärt werden.
-    </p>
-
-    <h3 id="datenschutz">Datenschutzhinweise – Entwurf</h3>
-
-    <h3>1. Verantwortliche Stelle</h3>
-    <p>
-      Die datenschutzrechtlich verantwortliche Stelle
-      muss vor Veröffentlichung anhand der tatsächlichen
-      Betreiberverhältnisse bestimmt und mit den
-      erforderlichen Kontaktdaten benannt werden.
-    </p>
-
-    <h3>2. Bereitstellung der Website</h3>
-    <p>
-      Die Website wird nach der derzeitigen
-      technischen Planung über Vercel bereitgestellt.
-      Beim Abruf können insbesondere IP-Adresse,
-      Zeitpunkt, angeforderte Ressource,
-      Browserinformationen und weitere
-      technisch erforderliche Verbindungsdaten
-      verarbeitet werden.
-    </p>
-
-    <h3>3. Zwecke und Rechtsgrundlagen</h3>
-    <p>
-      Technisch erforderliche Datenverarbeitungen
-      können der sicheren und zuverlässigen
-      Bereitstellung der Website dienen.
-      Die konkrete Rechtsgrundlage,
-      insbesondere eine mögliche Verarbeitung
-      auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO,
-      muss anhand der tatsächlichen Verarbeitung
-      und Interessenabwägung bestätigt werden.
-    </p>
-
-    <h3>4. Externe Marktdaten</h3>
-    <p>
-      Für das Token-Dashboard werden Daten
-      von der DEX Screener API abgerufen.
-      Dabei kann der Browser eine direkte
-      Verbindung zu diesem Drittanbieter herstellen.
-      Die Verarbeitung durch den Drittanbieter
-      ist gesondert zu prüfen und in der endgültigen
-      Datenschutzerklärung zutreffend darzustellen.
-    </p>
-
-    <h3>5. Cookies und Tracking</h3>
-    <p>
-      Der hier enthaltene HTML-Code setzt selbst
-      keine Analyse- oder Werbe-Cookies ein.
-      Ob Hosting, vorgeschaltete Dienste oder
-      spätere Erweiterungen zusätzliche
-      Technologien einsetzen, muss anhand
-      der tatsächlichen Konfiguration geprüft werden.
-    </p>
-
-    <h3>6. Empfänger und Drittlandübermittlungen</h3>
-    <p>
-      Mögliche Empfänger personenbezogener Daten
-      und gegebenenfalls stattfindende
-      Drittlandübermittlungen müssen anhand
-      der Verträge, Dienstleister und
-      Hosting-Einstellungen konkret dokumentiert werden.
-    </p>
-
-    <h3>7. Speicherdauer</h3>
-    <p>
-      Die tatsächlichen Speicher- und Löschfristen,
-      insbesondere für technische Protokolldaten,
-      müssen beim Hosting-Anbieter und in der
-      eingesetzten Konfiguration geprüft werden.
-    </p>
-
-    <h3>8. Betroffenenrechte</h3>
-    <p>
-      Betroffene Personen haben nach Maßgabe
-      der DSGVO insbesondere Rechte auf Auskunft,
-      Berichtigung, Löschung, Einschränkung
-      der Verarbeitung, Datenübertragbarkeit
-      sowie gegebenenfalls Widerspruch.
-      Außerdem besteht ein Beschwerderecht
-      bei einer zuständigen Datenschutzaufsichtsbehörde.
-    </p>
-
-    <h3>9. Kontakt für Datenschutzanfragen</h3>
-    <p>
-      Die zuständige Kontaktmöglichkeit
-      muss vor Veröffentlichung ergänzt werden.
-    </p>
-
-    <div class="notice">
-      <strong>Wichtig:</strong>
-      Diese Datenschutzhinweise sind ein
-      strukturierter Entwurf und noch keine
-      vollständig geprüfte Datenschutzerklärung.
-      Die offenen Tatsachen können nicht
-      durch allgemeine Formulierungen ersetzt werden.
+    <div class="note">
+      <strong>Keine Verkaufsplattform:</strong>
+      Diese Website verkauft keine DD23-Token,
+      bietet keinen Wallet-Connect an und
+      verarbeitet keine Token-Transaktionen.
+      Externe Links führen zu unabhängigen
+      Drittanbietern.
     </div>
   </div>
 </section>
@@ -822,16 +817,22 @@ footer{
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="container">
     <strong class="gold">DD23 · EIN MANN. EIN WORT.</strong>
-    <p>Ein experimentelles Community-Projekt ohne Renditeversprechen.</p>
+
+    <p style="margin-top:12px">
+      Unabhängige Informationsseite zum DD23-Memecoin.
+      Kein Renditeversprechen.
+    </p>
+
     <div class="footer-links">
-      <a href="#impressum">Impressum</a>
-      <a href="#datenschutz">Datenschutz</a>
-      <a href="#whitepaper">Projektdokumentation</a>
-      <a href="#transparenz">Risikohinweise</a>
-      <a href="#start">Nach oben</a>
+      <a href="#about">Über DD23</a>
+      <a href="#token">Token</a>
+      <a href="#market">Marktdaten</a>
+      <a href="#risk">Risiken</a>
+      <a href="#independent">Unabhängigkeit</a>
     </div>
+
     <p>© <span id="year"></span> DD23</p>
   </div>
 </footer>
@@ -846,32 +847,49 @@ const API =
   "https://api.dexscreener.com/token-pairs/v1/base/" +
   CONTRACT;
 
-const $ = id => document.getElementById(id);
+const el = id => document.getElementById(id);
 
-function unavailable() {
-  ["price","change","liquidity","volume","fdv","marketcap"]
-    .forEach(id => $(id).textContent = "Nicht verfügbar");
+let loading = false;
+
+function showUnavailable() {
+  [
+    "price",
+    "change",
+    "liquidity",
+    "volume",
+    "fdv",
+    "marketcap"
+  ].forEach(id => {
+    el(id).textContent = "Nicht verfügbar";
+  });
 }
 
-function money(value, compact = false) {
-  const n = Number(value);
-  if (!Number.isFinite(n) || n < 0) return "Nicht verfügbar";
+function usd(value, compact = false) {
+  if(value === null || value === undefined || value === "")
+    return "Nicht verfügbar";
 
-  if (compact && n >= 1000) {
-    return new Intl.NumberFormat("de-DE", {
-      notation:"compact",
-      maximumFractionDigits:2
-    }).format(n) + " $";
-  }
+  const n = Number(value);
+
+  if(!Number.isFinite(n) || n < 0)
+    return "Nicht verfügbar";
 
   return new Intl.NumberFormat("de-DE", {
-    maximumFractionDigits:n < 0.01 ? 10 : 4
-  }).format(n) + " $";
+    style:"currency",
+    currency:"USD",
+    notation:compact ? "compact" : "standard",
+    maximumFractionDigits:
+      n > 0 && n < 0.000001 ? 12 :
+      n < 0.01 ? 8 : 2
+  }).format(n);
 }
 
-function percent(value) {
+function percentage(value) {
+  if(value === null || value === undefined || value === "")
+    return "Nicht verfügbar";
+
   const n = Number(value);
-  if (value == null || !Number.isFinite(n))
+
+  if(!Number.isFinite(n))
     return "Nicht verfügbar";
 
   return (n > 0 ? "+" : "") +
@@ -880,164 +898,123 @@ function percent(value) {
     }).format(n) + " %";
 }
 
-let loading = false;
+async function updateMarket() {
+  if(loading) return;
 
-async function loadMarket() {
-  if (loading) return;
   loading = true;
-
-  $("liveStatus").textContent = "Wird aktualisiert";
-  $("liveDot").classList.remove("ok");
-  $("refresh").disabled = true;
+  el("refresh").disabled = true;
+  el("statusText").textContent = "Wird aktualisiert";
+  el("statusDot").classList.remove("online");
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12000);
+  const timeout = setTimeout(() => controller.abort(),12000);
 
   try {
-    const response = await fetch(API, {
+    const response = await fetch(API,{
       signal:controller.signal,
       cache:"no-store"
     });
 
-    if (!response.ok) {
-      throw new Error("API HTTP " + response.status);
-    }
+    if(!response.ok)
+      throw new Error("API nicht erreichbar");
 
     const data = await response.json();
 
-    if (!Array.isArray(data)) {
-      throw new Error("Unerwartetes Datenformat");
-    }
+    if(!Array.isArray(data))
+      throw new Error("Ungültige API-Antwort");
 
+    // Nur Paare, in denen DD23 der Base-Token ist.
+    // So beziehen sich Preis und Marktdaten auf DD23.
     const pairs = data.filter(pair =>
       pair &&
       pair.chainId === "base" &&
-      (
-        pair.baseToken?.address?.toLowerCase() ===
-          CONTRACT.toLowerCase() ||
-        pair.quoteToken?.address?.toLowerCase() ===
-          CONTRACT.toLowerCase()
-      )
+      pair.baseToken &&
+      pair.baseToken.address &&
+      pair.baseToken.address.toLowerCase() ===
+        CONTRACT.toLowerCase()
     );
 
+    // Größte gemeldete USD-Liquidität zuerst.
     pairs.sort((a,b) =>
-      (Number(b.liquidity?.usd) || 0) -
-      (Number(a.liquidity?.usd) || 0)
+      (Number(b.liquidity?.usd)||0) -
+      (Number(a.liquidity?.usd)||0)
     );
 
     const pair = pairs[0];
 
-    if (!pair) {
-      unavailable();
-      $("liveStatus").textContent = "Kein Handelspaar erfasst";
-      $("lastUpdated").textContent =
-        "Für diesen Token liegen derzeit keine " +
-        "auswertbaren DEX-Daten vor.";
+    if(!pair) {
+      showUnavailable();
+      el("statusText").textContent =
+        "Kein passendes Paar gefunden";
+      el("updated").textContent =
+        "Keine verlässlichen DEX-Daten verfügbar.";
       return;
     }
 
-    // Der Preis muss sich auf DD23 beziehen.
-    const dd23IsBase =
-      pair.baseToken.address.toLowerCase() ===
-      CONTRACT.toLowerCase();
+    el("price").textContent =
+      usd(pair.priceUsd);
 
-    const basePrice = Number(pair.priceUsd);
+    el("change").textContent =
+      percentage(pair.priceChange?.h24);
 
-    $("price").textContent =
-      dd23IsBase && Number.isFinite(basePrice)
-        ? money(basePrice)
-        : "Nicht verfügbar";
+    el("liquidity").textContent =
+      usd(pair.liquidity?.usd,true);
 
-    $("change").textContent =
-      dd23IsBase ? percent(pair.priceChange?.h24)
-                 : "Nicht verfügbar";
+    el("volume").textContent =
+      usd(pair.volume?.h24,true);
 
-    $("liquidity").textContent =
-      pair.liquidity?.usd != null
-        ? money(pair.liquidity.usd,true)
-        : "Nicht verfügbar";
+    el("fdv").textContent =
+      usd(pair.fdv,true);
 
-    $("volume").textContent =
-      pair.volume?.h24 != null
-        ? money(pair.volume.h24,true)
-        : "Nicht verfügbar";
+    el("marketcap").textContent =
+      usd(pair.marketCap,true);
 
-    $("fdv").textContent =
-      dd23IsBase && pair.fdv != null
-        ? money(pair.fdv,true)
-        : "Nicht verfügbar";
+    el("statusText").textContent = "Daten geladen";
+    el("statusDot").classList.add("online");
 
-    // Nur die vom Anbieter gemeldete Kennzahl.
-    // Keine eigene Umlaufmengen-Schätzung.
-    $("marketcap").textContent =
-      dd23IsBase && pair.marketCap != null
-        ? money(pair.marketCap,true)
-        : "Nicht verfügbar";
-
-    $("liveStatus").textContent = "DEX-Daten geladen";
-    $("liveDot").classList.add("ok");
-
-    $("lastUpdated").textContent =
+    el("updated").textContent =
       "Letzter erfolgreicher Abruf: " +
       new Date().toLocaleString("de-DE") +
-      ". Datenquelle: DEX Screener. " +
-      "Ausgewählt wurde das erfasste Paar mit " +
-      "der höchsten gemeldeten USD-Liquidität.";
+      ". Quelle: DEX Screener. Angezeigt wird " +
+      "das erfasste DD23-Paar mit der höchsten " +
+      "gemeldeten USD-Liquidität.";
 
-  } catch (error) {
-    unavailable();
-    $("liveStatus").textContent = "Daten nicht erreichbar";
-    $("lastUpdated").textContent =
-      "Der Marktdatenabruf ist fehlgeschlagen. " +
+  } catch(error) {
+    showUnavailable();
+
+    el("statusText").textContent =
+      "Daten nicht erreichbar";
+
+    el("updated").textContent =
+      "Der Abruf ist fehlgeschlagen. " +
       "Bitte später erneut versuchen.";
   } finally {
     clearTimeout(timeout);
     loading = false;
-    $("refresh").disabled = false;
+    el("refresh").disabled = false;
   }
 }
 
-$("refresh").addEventListener("click",loadMarket);
+el("refresh").addEventListener("click",updateMarket);
 
-$("copy").addEventListener("click",async function(){
+el("copy").addEventListener("click",async function(){
   try {
     await navigator.clipboard.writeText(CONTRACT);
     this.textContent = "Adresse kopiert!";
-  } catch {
+  } catch(error) {
     this.textContent = "Bitte manuell kopieren";
   }
+
   setTimeout(() => {
     this.textContent = "Adresse kopieren";
   },2500);
 });
 
-const target = new Date("2027-11-18T00:00:00+01:00");
+el("year").textContent = new Date().getFullYear();
 
-function updateCountdown() {
-  const diff = target.getTime() - Date.now();
-
-  if (diff <= 0) {
-    $("countdown").textContent = "Zieltermin erreicht";
-    return;
-  }
-
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff % 86400000) / 3600000);
-  const minutes = Math.floor((diff % 3600000) / 60000);
-
-  $("countdown").textContent =
-    days + " Tage · " +
-    hours + " Std · " +
-    minutes + " Min";
-}
-
-$("year").textContent = new Date().getFullYear();
-
-updateCountdown();
-setInterval(updateCountdown,60000);
-
-loadMarket();
-setInterval(loadMarket,120000);
+updateMarket();
+setInterval(updateMarket,120000);
 </script>
+
 </body>
 </html>
