@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08090b">
+<meta name="description" content="DD23 – Ein Mann. Ein Wort. Eine Community-Idee auf Base.">
+<title>DD23 | Ein Mann. Ein Wort.</title>
+<style>
+:root{
+  --bg:#08090b;--bg2:#0d1014;--panel:#10151a;--panel2:#151b21;
+  --ink:#f4f1e9;--muted:#9ba3aa;--gold:#d8ad5b;--gold2:#f2d28b;
+  --line:rgba(216,173,91,.22);--lime:#c5e56a;--blue:#8cb8ff;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --max:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 82%)}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
+.announcement{height:31px;background:#11161b;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:#aeb5b9;font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+.announcement b{color:var(--gold2);font-weight:600;margin-right:8px}
+header{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.13em;font-size:16px}
+.logo-icon{height:35px;width:35px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);font:700 12px var(--mono);box-shadow:inset 0 0 18px rgba(216,173,91,.12),0 0 20px rgba(216,173,91,.08);transform:rotate(45deg)}
+.logo-icon span{transform:rotate(-45deg)}
+.logo small{display:block;color:#7e878e;font:9px var(--mono);letter-spacing:.18em;margin-top:1px}
+nav{display:flex;align-items:center;gap:22px}
+nav a{font:10px var(--mono);letter-spacing:.08em;color:#aab1b6;transition:.2s}
+nav a:hover{color:var(--gold2)}
+.nav-cta{border:1px solid var(--line);padding:9px 13px;color:var(--gold2);font:10px var(--mono);letter-spacing:.1em}
+.menu{display:none;background:transparent;color:var(--ink);border:1px solid var(--line);padding:8px 11px}
+.hero{position:relative;min-height:690px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.07);background:radial-gradient(ellipse at 77% 47%,rgba(185,133,45,.12),transparent 31%),radial-gradient(ellipse at 15% 15%,rgba(44,95,135,.12),transparent 35%),linear-gradient(115deg,#08090b 5%,#0c1014 58%,#090b0d)}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,9,11,.12),transparent 65%),linear-gradient(0deg,var(--bg),transparent 24%)}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:30px;align-items:center;position:relative;z-index:2;padding:76px 0 100px}
+.eyebrow,.kicker{font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--gold2)}
+.live-dot{display:inline-block;width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 12px var(--lime);margin-right:9px}
+h1{font-size:clamp(54px,7.7vw,100px);line-height:.9;letter-spacing:-.075em;margin:23px 0 24px;font-weight:850}
+h1 span{display:block;color:var(--gold2);text-shadow:0 0 38px rgba(216,173,91,.16)}
+.hero-copy{max-width:570px;color:#b7bec1;font-size:17px}
+.hero-copy strong{color:#f4f1e9;font-weight:600}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:11px;padding:13px 17px;background:var(--gold);color:#111;font:800 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold);transition:.2s}
+.btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(216,173,91,.16)}
+.btn.ghost{background:transparent;color:#e8e4dc;border-color:rgba(255,255,255,.18)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold2);box-shadow:none}
+.hero-meta{margin-top:38px;display:flex;gap:18px;flex-wrap:wrap;color:#7f898f;font:9px var(--mono);letter-spacing:.1em}
+.hero-meta span:before{content:"◇";color:var(--gold);margin-right:7px}
+.coin-stage{position:relative;min-height:440px;display:grid;place-items:center}
+.orbit{position:absolute;border:1px solid rgba(216,173,91,.2);border-radius:50%;width:390px;height:390px;transform:rotate(-22deg)}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px dashed rgba(140,184,255,.2);border-radius:50%;inset:28px;transform:rotate(38deg)}
+.orbit:after{inset:66px;border-style:solid;border-color:rgba(216,173,91,.13)}
+.orbit2{width:475px;height:250px;transform:rotate(52deg);border-color:rgba(140,184,255,.17)}
+.coin{position:relative;width:230px;height:230px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 32% 25%,#ffe5a0 0,#c9953f 18%,#6d4819 46%,#17130d 70%);box-shadow:0 0 45px rgba(216,173,91,.2),inset 0 0 0 5px rgba(255,229,160,.24),inset 0 0 0 12px rgba(28,20,9,.7),inset 0 0 38px #080808;transform:rotate(-13deg);z-index:2}
+.coin:before{content:"";position:absolute;inset:17px;border:1px solid rgba(255,231,177,.65);border-radius:50%;box-shadow:0 0 0 4px rgba(24,17,8,.45),0 0 0 5px rgba(255,225,156,.23)}
+.coin:after{content:"";position:absolute;inset:31px;border:1px dashed rgba(255,232,187,.5);border-radius:50%}
+.coin-inner{position:relative;z-index:2;text-align:center;color:#261a09;text-shadow:0 1px 0 rgba(255,238,190,.45)}
+.coin-inner b{display:block;font:900 67px/.9 Georgia,serif;letter-spacing:-.1em}
+.coin-inner small{display:block;font:800 10px var(--mono);letter-spacing:.25em;margin-top:9px}
+.float-tag{position:absolute;z-index:4;padding:9px 12px;background:rgba(14,18,21,.85);border:1px solid var(--line);backdrop-filter:blur(10px);font:10px var(--mono);color:#d5d9d7;box-shadow:0 10px 35px #0008}
+.float-tag b{color:var(--gold2)}
+.tag-a{top:55px;right:4px}.tag-b{bottom:64px;left:2px}.tag-c{bottom:15px;right:35px}
+.chain-strip{border-bottom:1px solid rgba(255,255,255,.07);background:#0d1114}
+.chain-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:66px;flex-wrap:wrap}
+.chain-label{font:9px var(--mono);letter-spacing:.16em;color:#707b82;text-transform:uppercase}
+.chain-item{display:flex;align-items:center;gap:8px;color:#c0c6c7;font:10px var(--mono);letter-spacing:.06em}
+.base-mark{height:18px;width:18px;border-radius:50%;background:#245bdb;display:grid;place-items:center;color:white;font-size:10px;font-weight:900}
+section{padding:92px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+h2{font-size:clamp(34px,5vw,57px);line-height:1.03;letter-spacing:-.055em;margin:12px 0 14px;font-weight:750}
+h2 em{font-style:normal;color:var(--gold2)}
+.lead{color:var(--muted);max-width:650px;font-size:16px}
+.section-index{font:11px var(--mono);color:#667078;white-space:nowrap}
+.story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.story-copy p{color:#aeb6ba}
+.manifesto{padding:35px;background:linear-gradient(145deg,#171b1e,#0e1215);border:1px solid var(--line);position:relative;overflow:hidden}
+.manifesto:after{content:"DD23";position:absolute;right:-12px;bottom:-37px;font:900 105px var(--mono);color:rgba(216,173,91,.045);letter-spacing:-.12em}
+.manifesto .mark{font:11px var(--mono);color:var(--gold);letter-spacing:.2em}
+.manifesto blockquote{margin:20px 0 12px;font:clamp(25px,3vw,34px)/1.2 Georgia,serif}
+.manifesto small{color:#858f94;font:9px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.values{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.value{padding:22px 18px;background:linear-gradient(160deg,#151a1e,#0d1114);border:1px solid rgba(255,255,255,.07);min-height:205px;transition:.2s}
+.value:hover{border-color:var(--line);transform:translateY(-4px)}
+.value .n{font:11px var(--mono);color:var(--gold)}
+.value h3{font-size:17px;line-height:1.2;margin:22px 0 10px}
+.value p{font-size:12px;color:#899399;line-height:1.6;margin:0}
+.promise-section{background:radial-gradient(ellipse at 15% 50%,rgba(216,173,91,.08),transparent 40%),#0b0e10}
+.promise-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}
+.reserve-number{font:clamp(65px,9vw,104px)/.95 var(--mono);letter-spacing:-.1em;color:var(--gold2);margin-top:22px;text-shadow:0 0 40px rgba(216,173,91,.12)}
+.reserve-number small{display:block;font:10px var(--mono);letter-spacing:.18em;color:#90999d;margin:14px 0 0}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}
+.time{background:#0b0e10;border:1px solid var(--line);padding:13px 5px;text-align:center}
+.time strong{display:block;color:var(--gold2);font:27px var(--mono)}
+.time span{font:8px var(--mono);letter-spacing:.14em;color:#79848a;text-transform:uppercase}
+.promise-copy p{color:#adb5b8}
+.warning{margin-top:20px;padding:14px 16px;border-left:2px solid var(--gold);background:rgba(216,173,91,.07);color:#d9d2c3;font-size:12px}
+.community-panel{padding:36px;border:1px solid var(--line);background:radial-gradient(ellipse at 90% 0,rgba(140,184,255,.09),transparent 42%),linear-gradient(120deg,#13191e,#0c1013)}
+.community-panel p{max-width:850px;color:#aab3b7}
+.token-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:linear-gradient(145deg,#151b20,#0d1114);border:1px solid rgba(255,255,255,.08);padding:23px}
+.stat .label{font:9px var(--mono);letter-spacing:.17em;color:#77838a;text-transform:uppercase}
+.stat .value{border:0;background:none;min-height:0;padding:0;margin:12px 0 0;font:clamp(25px,3vw,36px) var(--mono);color:var(--gold2);transform:none}
+.stat p{color:#889399;font-size:12px;margin:8px 0 0}
+.contract{grid-column:1/-1}
+.contract-line{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:14px}
+.contract-address{font:12px var(--mono);color:#d6dce0;overflow-wrap:anywhere}
+.small-btn{background:transparent;border:1px solid var(--line);color:var(--gold2);padding:9px 12px;cursor:pointer;font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.small-btn:hover{background:rgba(216,173,91,.08)}
+.explorer{color:#a9c7ff}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.phase{padding:22px;background:#101519;border:1px solid rgba(255,255,255,.07);position:relative;min-height:215px}
+.phase:before{content:"";position:absolute;left:0;top:0;width:32px;height:2px;background:var(--gold)}
+.phase .num{font:10px var(--mono);color:var(--gold)}
+.phase h3{font-size:18px;line-height:1.25;margin:24px 0 10px}
+.phase p{font-size:12px;color:#8e999e;margin:0}
+.transparency{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.transparency article{padding:19px 21px;background:#101519;border:1px solid rgba(255,255,255,.07);color:#aab3b7;font-size:13px}
+.transparency b{display:block;color:var(--gold2);font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.join{display:flex;justify-content:space-between;align-items:center;gap:35px;padding:34px;border:1px solid var(--line);background:linear-gradient(110deg,#171b1d,#0d1114)}
+.join p{color:#9ca7ac;max-width:720px}
+.risk{font-size:12px;color:#a3adb1;border:1px solid rgba(216,173,91,.18);background:rgba(216,173,91,.035);padding:20px}
+footer{padding:35px 0;color:#707b81;font:10px var(--mono)}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer b{color:var(--gold2);letter-spacing:.15em}
+.legal{font:10px/1.7 system-ui;color:#68737a;max-width:700px;margin-top:14px}
+@media(max-width:900px){nav{gap:12px}nav a{font-size:9px}.hero-grid{grid-template-columns:1fr .8fr}.coin{width:190px;height:190px}.coin-inner b{font-size:55px}.orbit{width:310px;height:310px}.orbit2{width:360px}.values{grid-template-columns:repeat(3,1fr)}.roadmap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+ .wrap{width:min(var(--max),calc(100% - 30px))}.nav{height:64px}
+ .menu{display:block}nav{display:none;position:absolute;top:64px;left:0;right:0;background:#0d1114;padding:20px 24px;border-bottom:1px solid var(--line);align-items:flex-start;flex-direction:column}nav.open{display:flex}
+ .nav-cta{display:none}.hero-grid{grid-template-columns:1fr;padding:76px 0 55px}.hero{min-height:0}.coin-stage{min-height:350px;margin-top:5px}.coin{width:175px;height:175px}.coin-inner b{font-size:50px}.orbit{width:290px;height:290px}.orbit2{width:340px;height:190px}.tag-a{right:0;top:20px}.tag-b{left:0;bottom:45px}
+ .chain-inner{padding:15px 0}.section-top{display:block}.section-index{margin-top:14px}.story-grid,.promise-grid{grid-template-columns:1fr;gap:28px}.values{grid-template-columns:repeat(2,1fr)}.token-grid{grid-template-columns:1fr 1fr}.contract{grid-column:1/-1}.join{display:block}.join .btn{margin-top:12px}
+ section{padding:70px 0}
+}
+@media(max-width:430px){.values,.roadmap,.transparency{grid-template-columns:1fr}.token-grid{grid-template-columns:1fr}.contract{grid-column:auto}.timer{gap:5px}.time strong{font-size:21px}.time{padding:11px 2px}.hero-meta{gap:10px}.float-tag{font-size:8px}}
+</style>
+</head>
+<body>
+<div class="announcement"><b>●</b> DD23 COMMUNITY TOKEN <span style="margin:0 9px;color:#4e5960">/</span> BASE NETWORK</div>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#start"><span class="logo-icon"><span>23</span></span><span>DD23<small>ONE WORD. ONE COMMUNITY.</small></span></a>
+  <button class="menu" id="menu" aria-label="Menü öffnen">☰</button>
+  <nav id="nav">
+   <a href="#story">STORY</a><a href="#values">VALUES</a><a href="#promise">PLEDGE</a><a href="#token">TOKEN</a><a href="#roadmap">ROADMAP</a><a href="#transparency">TRANSPARENCY</a>
+  </nav>
+  <a class="nav-cta" href="#token">VIEW CONTRACT ↗</a>
+ </div>
+</header>
+<main>
+<section class="hero" id="start">
+ <div class="wrap hero-grid">
+  <div>
+   <div class="eyebrow"><i class="live-dot"></i>A COMMUNITY IDEA ON BASE</div>
+   <h1>EIN MANN.<span>EIN WORT.</span></h1>
+   <p class="hero-copy"><strong>Ein Handschlag ist ein Versprechen.</strong><br>Eine Hand wäscht die andere. DD23 bringt traditionelle Werte in eine digitale Gemeinschaft – mit Vertrauen, Verantwortung und Zusammenhalt als Fundament.</p>
+   <div class="actions"><a class="btn" href="#token">EXPLORE DD23 <span>↗</span></a><a class="btn ghost" href="#promise">365-DAY PLEDGE</a></div>
+   <div class="hero-meta"><span>ERC-20 TOKEN</span><span>BASE NETWORK</span><span>100,000 TOTAL SUPPLY</span></div>
+  </div>
+  <div class="coin-stage" aria-label="Abstrakte DD23 Token-Illustration">
+   <div class="orbit"></div><div class="orbit orbit2"></div>
+   <div class="coin"><div class="coin-inner"><b>23</b><small>DD23 TOKEN</small></div></div>
+   <div class="float-tag tag-a"><b>BASE</b> / NETWORK</div>
+   <div class="float-tag tag-b"><b>100,000</b> / TOTAL SUPPLY</div>
+   <div class="float-tag tag-c">BUILT ON <b>BASE ↗</b></div>
+  </div>
+ </div>
+</section>
+<div class="chain-strip"><div class="wrap chain-inner"><span class="chain-label">NETWORK / ECOSYSTEM</span><span class="chain-item"><i class="base-mark">▰</i> BASE</span><span class="chain-item">ERC-20 STANDARD</span><span class="chain-item">METAMASK COMPATIBLE</span><span class="chain-item">UNISWAP* <small style="color:#737e84">(*bei vorhandener Liquidität)</small></span></div></div>
+
+<section id="story"><div class="wrap story-grid">
+ <div><div class="kicker">01 / THE ORIGIN</div><h2>Ein Mensch.<br><em>Eine Überzeugung.</em></h2>
+ <div class="story-copy"><p>DD23 beginnt mit einem einzelnen Menschen und dem Glauben an Ehrlichkeit, Anstand und Verlässlichkeit.</p><p>Ein guter Ruf wurde früher nicht gekauft. Man erarbeitete ihn sich. Ein Handschlag galt als Verpflichtung. Wer etwas versprach, hielt es. Wer Unterstützung erhielt, vergaß sie nicht.</p><p>DD23 trägt Treue, Fleiß, Bodenständigkeit, Pflichtbewusstsein und Zusammenhalt in die digitale Gegenwart. Entscheidend ist nicht, woher jemand kommt oder wie viel er besitzt, sondern wie er handelt.</p></div></div>
+ <aside class="manifesto"><div class="mark">DD23 / MANIFEST</div><blockquote>„Ein gegebenes Wort zählt. Nicht das lauteste Versprechen, sondern das eingehaltene.“</blockquote><small>THE PRINCIPLE BEHIND THE PROJECT</small></aside>
+</div></section>
+
+<section id="values"><div class="wrap"><div class="section-top"><div><div class="kicker">02 / THE PRINCIPLES</div><h2>Werte, die <em>bleiben.</em></h2><p class="lead">Ein Mann. Ein Wort. Eine Hand wäscht die andere.</p></div><div class="section-index">05 CORE VALUES / DD23</div></div>
+ <div class="values">
+  <article class="value"><div class="n">01 — WORD</div><h3>Ein Mann. Ein Wort.</h3><p>Nicht das lauteste Versprechen zählt, sondern das eingehaltene.</p></article>
+  <article class="value"><div class="n">02 — SUPPORT</div><h3>Eine Hand wäscht die andere.</h3><p>Unterstützung weitergeben – mit Zeit, Wissen, Kontakten oder einer helfenden Hand.</p></article>
+  <article class="value"><div class="n">03 — HONESTY</div><h3>Ehrlichkeit vor Gewinn.</h3><p>Wer bekommt, gibt auch zurück. Nicht aus Zwang, sondern aus Überzeugung.</p></article>
+  <article class="value"><div class="n">04 — TRUST</div><h3>Vertrauen statt Zwang.</h3><p>Das Halteversprechen ist freiwillig. Keine technische Sperre – unser Wort zählt.</p></article>
+  <article class="value"><div class="n">05 — COMMUNITY</div><h3>Gemeinschaft statt Einzelinteressen.</h3><p>DD23 soll langfristig durch Menschen und gegenseitige Unterstützung wachsen.</p></article>
+ </div>
+</div></section>
+
+<section class="promise-section" id="promise"><div class="wrap promise-grid">
+ <div><div class="kicker">03 / THE 365-DAY PLEDGE</div><h2>50,000 DD23.<br><em>365 Tage. Ein Wort.</em></h2><div class="reserve-number">50,000<small>DD23 / FOUNDER RESERVE</small></div>
+  <div class="timer"><div class="time"><strong id="d">—</strong><span>Tage</span></div><div class="time"><strong id="h">—</strong><span>Stunden</span></div><div class="time"><strong id="m">—</strong><span>Minuten</span></div><div class="time"><strong id="s">—</strong><span>Sekunden</span></div></div>
+ </div>
+ <div class="promise-copy"><p>Beginn: <strong>18. November 2026.</strong> Ende: <strong>18. November 2027.</strong> Die 50.000 DD23 der Gründerreserve sollen auf einer separaten MetaMask-Wallet verbleiben.</p><p>Während dieser Zeit sollen sie weder verkauft noch übertragen, für persönliche Zwecke verwendet oder als Liquidität eingesetzt werden.</p><p>Nach Ablauf wird die Reserve nicht automatisch veräußert. Die Gemeinschaft soll anhand zuvor veröffentlichter Entscheidungsregeln beraten, welcher Anteil Reserve bleibt, welcher für Projektzwecke veräußert und welcher zur Unterstützung der Gemeinschaft eingesetzt werden soll. Die Token gehören rechtlich weiterhin dem Wallet-Inhaber.</p><div class="warning"><strong>Wichtig:</strong> Freiwilliges öffentliches Halteversprechen – keine technische oder rechtliche Sperre. Die Reserve-Adresse wird erst nach Bestätigung veröffentlicht.</div></div>
+</div></section>
+
+<section id="community"><div class="wrap"><div class="kicker">04 / THE COMMUNITY</div><h2>Aus einem Einzelnen<br><em>wird ein Wir.</em></h2><p class="lead">Eine Gemeinschaft nach dem Vorbild eines Vereins.</p>
+ <div class="community-panel"><p>DD23 soll Menschen verbinden, die dieselben Grundwerte teilen. Wie in einem guten Verein sollen Mitglieder und Unterstützer Ideen einbringen, Aufgaben übernehmen und gemeinsame Vorhaben entwickeln.</p><p>Nicht der größte Tokenbesitzer soll automatisch bestimmen. Regeln für Mitgliedschaft, Abstimmungen und die Verwendung gemeinschaftlicher Mittel müssen erst gemeinsam entwickelt und veröffentlicht werden. Eine rechtliche Vereinsgründung ist eine mögliche spätere Entwicklung, aber noch keine bestehende Struktur.</p><p>Wer Unterstützung erhält, soll nach seinen Möglichkeiten anderen helfen.</p></div>
+</div></section>
+
+<section id="token"><div class="wrap"><div class="section-top"><div><div class="kicker">05 / TOKEN OVERVIEW</div><h2>Der Token.<br><em>Die Fakten.</em></h2><p class="lead">DD23 ist ein ERC-20-Token auf Base.</p></div><div class="section-index">ON-CHAIN REFERENCE</div></div>
+ <div class="token-grid">
+  <article class="stat"><div class="label">Total supply</div><div class="value">100,000</div><p>DD23 · feste Gesamtmenge laut Projektunterlagen</p></article>
+  <article class="stat"><div class="label">Network</div><div class="value">BASE</div><p>Ethereum Layer 2 · Base-Netzwerk</p></article>
+  <article class="stat"><div class="label">Token standard</div><div class="value">ERC-20</div><p>Kompatible Base-Wallets</p></article>
+  <article class="stat contract"><div class="label">Contract address / Base</div><div class="contract-line"><span class="contract-address" id="contract">0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43</span><div><button class="small-btn" id="copy">COPY ADDRESS</button> <a class="small-btn explorer" href="https://basescan.org/address/0x8644F1A48692E62342DfD63Cf0AA5948e7Ab2e43" target="_blank" rel="noopener">VIEW ON BASESCAN ↗</a></div></div></article>
+ </div>
+ <p class="lead" style="font-size:12px;margin-top:18px">Verwaltung über kompatible Wallets wie MetaMask, Uniswap Wallet und weitere Base-fähige Wallets. Handel über Uniswap ist möglich, soweit Liquidität vorhanden ist. Niedrige Handelsgebühren und nachvollziehbare Liquidität sind Ziele, keine Garantien.</p>
+</div></section>
+
+<section id="roadmap"><div class="wrap"><div class="section-top"><div><div class="kicker">06 / THE ROADMAP</div><h2>Von der Idee<br><em>zur Gemeinschaft.</em></h2><p class="lead">Vier Phasen. Ein gemeinsames Ziel. Dies sind Projektziele, keine zugesagten Ergebnisse.</p></div><div class="section-index">VISION / NEXT STEPS</div></div>
+ <div class="roadmap">
+  <article class="phase"><div class="num">PHASE 01 / FOUNDATION</div><h3>Fundament</h3><p>Token, Projektleitfaden, transparente Bestände und Gründerreserve dokumentieren.</p></article>
+  <article class="phase"><div class="num">PHASE 02 / COMMUNITY</div><h3>Gemeinschaft wie ein Verein</h3><p>Menschen zusammenbringen, Beteiligung ermöglichen, Zuständigkeiten und faire Abstimmungsregeln erarbeiten.</p></article>
+  <article class="phase"><div class="num">PHASE 03 / SUPPORT</div><h3>Eine Hand wäscht die andere</h3><p>Kleine Hilfsaktionen und gemeinsame Vorhaben entwickeln. Unterstützung kann auch Wissen, Kontakte oder Zeit bedeuten.</p></article>
+  <article class="phase"><div class="num">PHASE 04 / RESPONSIBILITY</div><h3>Gemeinsame Verantwortung</h3><p>Nach Ablauf der 365 Tage anhand vorher festgelegter Regeln über die künftige Verwendung der Gründerreserve entscheiden.</p></article>
+ </div>
+</div></section>
+
+<section id="transparency"><div class="wrap"><div class="kicker">07 / ON-CHAIN TRANSPARENCY</div><h2>Offenheit ist <em>Vertrauenssache.</em></h2><p class="lead">Die Website soll wichtige Informationen nachvollziehbar darstellen.</p>
+ <div class="transparency">
+  <article><b>01 / Contract</b>Die Contract-Adresse ist öffentlich über BaseScan einsehbar.</article>
+  <article><b>02 / Founder reserve</b>Die öffentliche Wallet-Adresse wird nach Bestätigung ergänzt.</article>
+  <article><b>03 / Holding pledge</b>Das freiwillige Halteversprechen läuft vom 18.11.2026 bis 18.11.2027.</article>
+  <article><b>04 / Token movements</b>Wesentliche Tokenbewegungen sollen transparent dargestellt werden.</article>
+  <article><b>05 / Community decisions</b>Spätere Regeln und Entscheidungen sollen veröffentlicht werden.</article>
+  <article><b>06 / Countdown</b>Der Countdown zeigt die Frist, ist aber kein Nachweis einer technischen Sperre.</article>
+ </div>
+</div></section>
+
+<section id="join"><div class="wrap"><div class="join"><div><div class="kicker">08 / BECOME PART OF DD23</div><h2>Eine Hand wäscht<br><em>die andere.</em></h2><p>Wer Ehrlichkeit, Verlässlichkeit und gegenseitige Unterstützung schätzt, kann Teil der entstehenden DD23-Gemeinschaft werden. Keine blinden Versprechen und keine schnellen Gewinne – sondern Menschen, die bereit sind, füreinander einzustehen. Offizielle Community-Kanäle werden ergänzt, sobald sie eingerichtet sind.</p></div><span class="btn ghost" style="opacity:.7;cursor:default">COMMUNITY LINKS SOON</span></div></div></section>
+
+<section id="risk"><div class="wrap"><div class="kicker">RISK NOTICE / PLEASE READ</div><h2>Keine Versprechen.<br><em>Nur Klartext.</em></h2><div class="risk">DD23 ist ein experimentelles Community-Projekt mit Kurs-, Liquiditäts- und Smart-Contract-Risiken. Es gibt keine garantierten Renditen, Rückkäufe oder Auszahlungen. Niedrige Handelsgebühren und nachvollziehbare Liquidität sind Ziele, keine Garantien. Diese Website ist keine Anlageberatung. Ein vollständiger Verlust des eingesetzten Betrags ist möglich. Bitte informiere dich eigenständig und triff keine Entscheidung aufgrund von Gewinnversprechen.</div><p class="legal" style="margin-top:17px">Vor Veröffentlichung müssen Impressum, Datenschutz und die rechtliche Prüfung der öffentlichen Token-Kommunikation geklärt werden. Dieser Projektleitfaden ersetzt keine rechtliche Prüfung.</p></div></section>
+</main>
+<footer><div class="wrap"><div class="footer-row"><span><b>DD23</b> / EIN MANN. EIN WORT.</span><span>BASE NETWORK · COMMUNITY PROJECT</span><span>© <span id="year"></span> DD23</span></div><p class="legal">Die Gründerreserve-Adresse und offizielle Community-Kanäle sind noch nicht bestätigt und deshalb nicht als bestehende Angaben dargestellt. Eine Vereinsorganisation oder automatische Community-Abstimmung besteht derzeit nicht.</p></div></footer>
+<script>
+const target=new Date("2027-11-18T00:00:00");
+function tick(){let x=Math.max(0,target.getTime()-Date.now());const vals={d:Math.floor(x/86400000),h:Math.floor(x%86400000/3600000),m:Math.floor(x%3600000/60000),s:Math.floor(x%60000/1000)};for(const [k,v] of Object.entries(vals))document.getElementById(k).textContent=String(v).padStart(2,"0")}
+tick();setInterval(tick,1000);document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("copy").addEventListener("click",async()=>{const b=document.getElementById("copy");try{await navigator.clipboard.writeText(document.getElementById("contract").textContent.trim());b.textContent="COPIED ✓";setTimeout(()=>b.textContent="COPY ADDRESS",1800)}catch(e){b.textContent="COPY NOT AVAILABLE"}});
+const nav=document.getElementById("nav");document.getElementById("menu").addEventListener("click",()=>nav.classList.toggle("open"));nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+</script>
+</body>
+</html>
